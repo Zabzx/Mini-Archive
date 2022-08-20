@@ -1,0 +1,33 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.logo-text {
+    color: var(--primary-pink);
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-svg {
+    position: absolute;
+}
+
+.info {
+    position: absolute;
+    right: 30px;
+    width: 30%;
+    top: 60%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.info-p + .info-p {
+    margin-top: 2rem;
+}
+
+
+.already {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+}
