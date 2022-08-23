@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import './signup.css';
 
 const SignUp = () => {
+    const usernameRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const confirmPasswordRef = useRef();
+
+    const { signup } = useAuth();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+            console.log('passwords dont match')
+            return
+        }
+    }
   return (
     <>
     <div className="logo">
@@ -49,24 +66,24 @@ const SignUp = () => {
     <div className="form">
     <h1 className="form-h1">Sign Up</h1>
 
-    <form className="intro-form">
+    <form className="intro-form" onSubmit={handleSubmit}>
         <div className="intro-form-item">
-        <input className="form-input" type="text" id="username" placeholder=' '/>
+        <input className="form-input" type="text" id="username" placeholder=' ' ref={usernameRef}/>
         <label htmlFor="username">Username</label>
         </div>
 
         <div className="intro-form-item">
-        <input className="form-input" type="email" id="email" placeholder=' '/>
+        <input className="form-input" type="email" id="email" placeholder=' ' ref={emailRef}/>
         <label htmlFor="email">Email</label>
         </div>
 
         <div className="intro-form-item">
-        <input className="form-input" type="password" id="password" placeholder=' '/>
+        <input className="form-input" type="password" id="password" placeholder=' ' ref={passwordRef}/>
         <label htmlFor="password">Password</label>
         </div>
 
         <div className="intro-form-item">
-        <input className="form-input" type="password" id="password-confirm" placeholder=' '/>
+        <input className="form-input" type="password" id="password-confirm" placeholder=' ' ref={confirmPasswordRef}/>
         <label htmlFor="password-confirm">Confirm Password</label>
         </div>
 
