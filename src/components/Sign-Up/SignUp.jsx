@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './signup.css';
 
 const SignUp = () => {
+
     const usernameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -18,6 +19,8 @@ const SignUp = () => {
             console.log('passwords dont match')
             return
         }
+
+        signup(emailRef.current.value, passwordRef.current.value)
     }
   return (
     <>
