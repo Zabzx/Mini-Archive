@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config();
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -20,8 +23,10 @@ app.get('/:id', (req, res) => {
     console.log(req.params)
 }, []);
 
+console.log(process.env.SOMETHING)
+
 const db = mongoose.connection;
-mongoose.connect("mongodb+srv://zabz:zabz@cluster0.ecez2ps.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_DB_CONNECTION)
     .then(() => app.listen(5000, console.log('server running')));
 
 db.once('open', () => console.log('connected to database'));
