@@ -75,10 +75,16 @@
     margin-top: 2rem;
 }
 
-
 .already {
     font-family: 'Poppins', sans-serif;
     margin-top: 1rem;
+}
+
+.error-message {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+    color: rgb(182, 0, 0)
 }
 
 /* Input animation */
