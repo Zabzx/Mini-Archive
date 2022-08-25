@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { useNavigate, Link } from 'react-router-dom'
 import './login.css'
 
 const LogIn = () => {
-    const { currentUser } = useAuth();
+    const navigate = useNavigate();
+    const emailRef = useRef();
+    const passwordRef = useRef();
 
-    const handleSubmit = (e) => {
+    const [error, setError] = useState("");
+
+    const { login } = useAuth();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(currentUser)
-
-        fetch("http://localhost:5000/JvnrSj4XDpX97X55ogkooH8QPdr2").then(() => {
-            return
-        })
+        try {
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate('/');
+        } catch (error) {
+            setError("Failed to log in")
+        }
     }
     return (
       <>
@@ -64,12 +72,12 @@ const LogIn = () => {
       <form onSubmit={handleSubmit} className="intro-form">
   
           <div className="intro-form-item">
-          <input className="form-input" type="email" id="email" placeholder=' '/>
+          <input className="form-input" type="email" id="email" placeholder=' ' ref={emailRef}/>
           <label htmlFor="email">Email</label>
           </div>
   
           <div className="intro-form-item">
-          <input className="form-input" type="password" id="password" placeholder=' '/>
+          <input className="form-input" type="password" id="password" placeholder=' ' ref={passwordRef}/>
           <label htmlFor="password">Password</label>
           </div>
   
@@ -85,7 +93,9 @@ const LogIn = () => {
       </div>
   
       <p className="text-center already">Forgot password? <span className="blue-span">reset password</span></p>
-      <p className="text-center already">Need an account? <span className="blue-span">Sign Up</span></p>
+      <p className="text-center already">Need an account? <Link to="/signup" className="blue-span">Sign Up</Link></p>
+
+      {error && <h2 className="error-message">{error}</h2>}
       </>
     )
   }

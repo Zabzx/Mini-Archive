@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './signup.css';
 
 const SignUp = () => {
@@ -16,7 +16,7 @@ const SignUp = () => {
 
     const { signup } = useAuth();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
 
@@ -30,9 +30,11 @@ const SignUp = () => {
             return;
         }
 
-        signup(emailRef.current.value, passwordRef.current.value);
-        setError("");
-        navigate('/login');
+        try {
+            await signup(emailRef.current.value, passwordRef.current.value);
+        } catch (error) {
+            setError("Failed to log in.");
+        }
     }
 
   return (
@@ -114,7 +116,7 @@ const SignUp = () => {
         <p className="info-p">Keep track of notes, tasks, upload files and more with your own <span className="blue-span">personalized archive!</span></p>
     </div>
 
-    <p className="text-center already">Already have an Account? <span className="blue-span">Log in</span></p>
+    <p className="text-center already">Already have an Account? <Link to="/login" className="blue-span">Log in</Link></p>
     
     { error && <h2 className="error-message">{error}</h2>}
     </>

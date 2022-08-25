@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "../../context/AuthContext"
 
-function App() {
+function Dashboard() {
   const { currentUser, logout } = useAuth();
 
   useEffect(() => {
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default Dashboard;
