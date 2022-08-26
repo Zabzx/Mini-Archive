@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useAuth } from '../../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import './login.css'
 
@@ -10,17 +9,8 @@ const LogIn = () => {
 
     const [error, setError] = useState("");
 
-    const { login } = useAuth();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            await login(emailRef.current.value, passwordRef.current.value);
-            navigate('/');
-        } catch (error) {
-            setError("Failed to log in")
-        }
     }
     return (
       <>

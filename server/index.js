@@ -23,6 +23,10 @@ app.get('/:id', (req, res) => {
     console.log(req.params)
 }, []);
 
+app.post('/', (req, res) => {
+    console.log(req.body)
+})
+
 console.log(process.env.SOMETHING)
 
 const db = mongoose.connection;

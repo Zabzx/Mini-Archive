@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import './signup.css';
 
@@ -13,8 +12,6 @@ const SignUp = () => {
     const confirmPasswordRef = useRef();
 
     const [error, setError] = useState('')
-
-    const { signup } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,11 +27,6 @@ const SignUp = () => {
             return;
         }
 
-        try {
-            await signup(emailRef.current.value, passwordRef.current.value);
-        } catch (error) {
-            setError("Failed to log in.");
-        }
     }
 
   return (
@@ -86,7 +78,7 @@ const SignUp = () => {
 
     <form className="intro-form" onSubmit={handleSubmit}>
         <div className="intro-form-item">
-        <input className="form-input" type="text" id="username" placeholder=' ' ref={usernameRef} required/>
+        <input className="form-input" type="text" id="username" placeholder=' ' ref={usernameRef} required onChange={(e) => setPost(e.currentTarget)}/>
         <label htmlFor="username">Username</label>
         </div>
 
