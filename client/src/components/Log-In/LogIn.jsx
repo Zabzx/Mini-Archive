@@ -78,9 +78,9 @@ const LogIn = () => {
       </div>
   
       <div className="info">
-          <p className="info-p">Log in with <span className="pink-span">Mini Archive</span> to start organizing your life</p>
-          <p className="info-p">Keep track of notes, tasks, upload files and more with your own <span className="blue-span">personalized archive!</span></p>
-      </div>
+        <p className="info-p">Log in with <span className="pink-span">Mini Media</span> to start enhancing your social presence</p>
+        <p className="info-p">Connect with loved ones, keep track of all the latest trends and <span className="blue-span">Events near you!</span></p>
+    </div>
   
       <p className="text-center already">Forgot password? <span className="blue-span">reset password</span></p>
       <p className="text-center already">Need an account? <Link to="/signup" className="blue-span">Sign Up</Link></p>

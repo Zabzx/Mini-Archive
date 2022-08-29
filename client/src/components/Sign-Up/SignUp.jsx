@@ -39,7 +39,7 @@ const SignUp = () => {
     </div>
 
         <div className="logo-text">
-            <h1>ini Archive</h1>
+            <h1>ini Media</h1>
         </div>
 
     </div>
@@ -78,7 +78,7 @@ const SignUp = () => {
 
     <form className="intro-form" onSubmit={handleSubmit}>
         <div className="intro-form-item">
-        <input className="form-input" type="text" id="username" placeholder=' ' ref={usernameRef} required onChange={(e) => setPost(e.currentTarget)}/>
+        <input className="form-input" type="text" id="username" placeholder=' ' ref={usernameRef} required />
         <label htmlFor="username">Username</label>
         </div>
 
@@ -104,8 +104,8 @@ const SignUp = () => {
     </div>
 
     <div className="info">
-        <p className="info-p">Create an account with <span className="pink-span">Mini Archive</span> to start organizing your life</p>
-        <p className="info-p">Keep track of notes, tasks, upload files and more with your own <span className="blue-span">personalized archive!</span></p>
+        <p className="info-p">Create an account with <span className="pink-span">Mini Media</span> to start enhancing your social presence</p>
+        <p className="info-p">Connect with loved ones, keep track of all the latest trends and <span className="blue-span">Events near you!</span></p>
     </div>
 
     <p className="text-center already">Already have an Account? <Link to="/login" className="blue-span">Log in</Link></p>
