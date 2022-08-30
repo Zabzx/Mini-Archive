@@ -1,14 +1,23 @@
 import React from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
-import {GoHome} from 'react-icons/go'
+// React Icons
+import { GoHome } from 'react-icons/go'
 import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
+import { FiSettings } from 'react-icons/fi'
+import twitterLogo  from '../../assets/twitterLogo.png'
+import githubLogo  from '../../assets/githubLogo.png'
+import porgfolioLogo  from '../../assets/portfolioLogo.png'
 
 function Dashboard() {
 
   return (
-    <div className="home-nav home-container">
+    <>
+    {/* // Header */}
+    <div className="home">
+    <div className="home-nav">
+      <div className="home-container home-flex">
       <div className="logo-and-search">
 
         <svg width="50" height="50" viewBox="0 0 630 514" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,10 +61,98 @@ function Dashboard() {
         <div className="profile-dropdown">
         <img src={TempPFP} className="profile-dropdown-img" alt="" />
         <h4>Zabz</h4>
-        <IoIosArrowDown className="nav-icon" />
+        <IoIosArrowDown className="primary-pink" />
         </div>
       </div>
+      </div>
     </div>
+    
+    {/* // Main content */}
+    <div className="main home-container">
+      
+      <div className="lsbc">
+      <div className="left-sidebar">
+        <div className="sidebar-container">
+
+        <div className="left-personal">
+          <div className="left-personal-name">
+          <img src={TempPFP} alt="" />
+          <h4>Ziabeher Phillips</h4>
+          <small>Port of Spain, Trinidad</small>
+          </div>
+          <FiSettings />
+        </div>
+
+        <div className="pages">
+        <small>YOUR PAGES</small>
+        <div className="left-sidebar-component">
+          <img src={twitterLogo} alt="" />
+
+          <div className="lsc-details">
+            <h4>Twitter</h4>
+            <small>Social Media Platform</small>
+          </div>
+
+            <div className="notification">
+              <p>2</p>
+            </div>
+        </div>
+
+        <h5 className="primary-blue">View All</h5>
+
+        <div className="projects">
+        <small>YOUR PROJECTS</small>
+        <div className="left-sidebar-component">
+          <img src={githubLogo} alt="" />
+          <div className="lsc-details">
+            <h4>GitHub</h4>
+            <small>Coding Platform</small>
+            </div>
+
+            <div className="notification">
+              <p>4</p>
+            </div>
+        </div>
+
+        <div className="left-sidebar-component">
+          <img src={porgfolioLogo} alt="" />
+          <div className="lsc-details">
+            <h4>Portfolio</h4>
+            <small>The best portfolio</small>
+            </div>
+
+            <div className="notification">
+              <p>9</p>
+            </div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+      </div>
+      {/*  */}
+      
+      <div className="left-sidebar-extra-content">
+        <p>Privacy Terms</p>
+        <p>Advertising</p>
+        <p>Cookies</p>
+      </div>
+      
+      <p>Ziabeher Phillips &copy; 2022</p>
+      </div>
+
+
+      <div className="middle">middle</div>
+
+
+      <div className="right">right</div>
+    </div>
+
+
+
+
+    </div>
+    </>
   );
 }
 

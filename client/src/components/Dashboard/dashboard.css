@@ -5,6 +5,10 @@
 
 /* Nav */
 .home-nav {
+    background-color: white;
+}
+
+.home-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,12 +19,14 @@
     display: flex;
     align-items: center;
     flex: 1;
+    gap: 1rem;
 }
 
 .search-icon {
     position: absolute;
     left: 10px;
     top: 10px;
+    color: #9B9B9B;
 }
 
 .nav-search {
@@ -30,7 +36,7 @@
 
 .nav-search input {
     border-radius: 20px;
-    border: 1px solid black;
+    border: 3px solid #EDEDED;
     height: 35px;
     padding-left: 30px;
     font-family: 'Poppins', sans-serif;
@@ -51,6 +57,7 @@
 
 .nav-icon {
     color: var(--primary-blue);
+    font-size: 1.2rem;
 }
 
 .profile-dropdown-container {
@@ -74,4 +81,117 @@
     height: 25px;
     width: 25px;
     border-radius: 100%;
+}
+
+/* Main */
+.main {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.home {
+    background-color: #EDEDED;
+    height: 100vh;
+}
+
+.sidebar-container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* Left sidebar */
+.lsbc {
+    width: 20%;
+}
+
+.lsbc p {
+    font-size: .7rem;
+    color: #9B9B9B;
+}
+.left-sidebar {
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 2rem;
+}
+.left-personal {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.left-personal::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    height: 1px;
+    width: 100%;
+    background-color: #EDEDED;
+}
+
+.left-personal img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.left-sidebar-component {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.left-sidebar-component img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.pages {
+    margin-top: 2rem;
+}
+
+.notification {
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.notification p {
+    color: white;
+    background-color: var(--primary-pink);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.left-sidebar h5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.left-sidebar-extra-content {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+
+
+.middle {
+    width: 50%;
+    background-color: white;
+}
+
+.right {
+    flex: 1;
+    background-color: white;
 }
