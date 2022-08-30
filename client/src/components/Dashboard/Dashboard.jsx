@@ -3,18 +3,21 @@ import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
 // React Icons
 import { GoHome } from 'react-icons/go'
-import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools } from 'react-icons/bs'
+import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
 import { IoIosArrowDown } from 'react-icons/io'
 import { FiSettings } from 'react-icons/fi'
 import twitterLogo  from '../../assets/twitterLogo.png'
 import githubLogo  from '../../assets/githubLogo.png'
 import porgfolioLogo  from '../../assets/portfolioLogo.png'
 import { MdTagFaces } from 'react-icons/md';
-import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip } from 'react-icons/ai'
-import { FaHashtag } from 'react-icons/fa'
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage } from 'react-icons/ai'
+import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
-function Dashboard() {
+import { BiRedo } from 'react-icons/bi'
+// Images
+import PostBurgers from '../../assets/post-burgers.jpg';
 
+function Dashboard() {
   return (
     <>
     {/* // Header */}
@@ -189,6 +192,96 @@ function Dashboard() {
             </li>
           </ul>
         </div>
+        </section>
+
+        <section className="posts">
+          <div className="post">
+            <div className="home-container">
+            <div className="post-header">
+              <div className="post-name-and-img">
+                <img src={TempPFP} className="post-pfp" alt="" />
+                <div>
+                <h3>Ziabeher Phillips</h3>
+                <small>2 hours ago</small>
+                </div>
+              </div>
+
+              <BsThreeDots />
+            </div>
+            hell yea brother
+
+            <img src={PostBurgers} className="post-img" alt="" />
+
+            <div className="post-interact">
+              <div className="like-and-comment">
+                <AiFillHeart className="post-interact-icon unliked" />
+                <AiOutlineMessage className="post-interact-icon" />
+                <BiRedo className="post-interact-icon" />
+              </div>
+
+              <div className="post-share">
+                <FaRegPaperPlane className="post-interact-icon" />
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div className="post">
+            <div className="home-container">
+            <div className="post-header">
+              <div className="post-name-and-img">
+                <img src={TempPFP} className="post-pfp" alt="" />
+                <div>
+                <h3>Ziabeher Phillips</h3>
+                <small>2 hours ago</small>
+                </div>
+              </div>
+
+              <BsThreeDots />
+            </div>
+            hell yea brother
+
+            <img src={PostBurgers} className="post-img" alt="" />
+            </div>
+          </div>
+
+          <div className="post">
+            <div className="home-container">
+            <div className="post-header">
+              <div className="post-name-and-img">
+                <img src={TempPFP} className="post-pfp" alt="" />
+                <div>
+                <h3>Ziabeher Phillips</h3>
+                <small>2 hours ago</small>
+                </div>
+              </div>
+
+              <BsThreeDots />
+            </div>
+            hell yea brother
+
+            <img src={PostBurgers} className="post-img" alt="" />
+            </div>
+          </div>
+
+          <div className="post">
+            <div className="home-container">
+            <div className="post-header">
+              <div className="post-name-and-img">
+                <img src={TempPFP} className="post-pfp" alt="" />
+                <div>
+                <h3>Ziabeher Phillips</h3>
+                <small>2 hours ago</small>
+                </div>
+              </div>
+
+              <BsThreeDots />
+            </div>
+            hell yea brother
+
+            <img src={PostBurgers} className="post-img" alt="" />
+            </div>
+          </div>
         </section>
       </div>
 
