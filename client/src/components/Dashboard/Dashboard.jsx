@@ -9,7 +9,10 @@ import { FiSettings } from 'react-icons/fi'
 import twitterLogo  from '../../assets/twitterLogo.png'
 import githubLogo  from '../../assets/githubLogo.png'
 import porgfolioLogo  from '../../assets/portfolioLogo.png'
-
+import { MdTagFaces } from 'react-icons/md';
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip } from 'react-icons/ai'
+import { FaHashtag } from 'react-icons/fa'
+import { TiAt } from 'react-icons/ti'
 function Dashboard() {
 
   return (
@@ -72,7 +75,7 @@ function Dashboard() {
       
       <div className="lsbc">
       <div className="left-sidebar">
-        <div className="sidebar-container">
+        <div className="home-container">
 
         <div className="left-personal">
           <div className="left-personal-name">
@@ -142,7 +145,52 @@ function Dashboard() {
       </div>
 
 
-      <div className="middle">middle</div>
+      <div className="main-feed">
+        <section className="post-form">
+          <div className="home-container">
+          <div className="img-and-input">
+            <img src={TempPFP} alt="" />
+            <input type="text" placeholder="Say something..." />
+
+            <MdTagFaces className="search-emoji" />
+          </div>
+          </div>
+
+          <div className="post-options home-container">
+          <ul>
+            <li>
+              <AiOutlinePicture className="post-option-icon" style={{color: 'var(--primary-blue)'}} />
+              Image
+            </li>
+
+            <li>
+              <AiFillCamera style={{color: '#88E26E'}} className="post-option-icon" />
+              Video
+            </li>
+
+            <li>
+              <AiOutlinePaperClip style={{color: '#ECBD59'}} className="post-option-icon" />
+              Attatchment
+            </li>
+
+            <li>
+              <FaHashtag style={{color: '#EC5959'}} className="post-option-icon" />
+              Hashtag
+            </li>
+
+            <li>
+              <TiAt className="post-option-icon" />
+              Mention
+            </li>
+
+            <li>
+              Public
+              <IoIosArrowDown className="primary-pink" />
+            </li>
+          </ul>
+        </div>
+        </section>
+      </div>
 
 
       <div className="right">right</div>
