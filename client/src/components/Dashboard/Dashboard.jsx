@@ -1,6 +1,13 @@
 import React from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
+// Post Images
+import Girl1 from '../../assets/post-girl-1.jpg'
+import Girl2 from '../../assets/post-girl-2.jpg'
+import pfp1 from '../../assets/pfp-1.jpg'
+import pfp2 from '../../assets/pfp-2.jpg'
+import pfp3 from '../../assets/pfp-3.jpg'
+import PostBurgers from '../../assets/post-burgers.jpg';
 // React Icons
 import { GoHome } from 'react-icons/go'
 import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
@@ -14,10 +21,36 @@ import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutl
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BiRedo } from 'react-icons/bi'
-// Images
-import PostBurgers from '../../assets/post-burgers.jpg';
 
 function Dashboard() {
+
+  const posts = [
+    {
+      id: 1,
+      pfp: pfp1,
+      name: "Jarrod Broughton",
+      time: "2 hours ago",
+      text: "hell yea brother",
+      img: PostBurgers
+    },
+    {
+      id: 2,
+      pfp: pfp2,
+      name: "Sarah-Jane Day",
+      time: "34 minutes ago",
+      text: "Shooting for Samsung today!",
+      img: Girl1
+    },
+    {
+      id: 2,
+      pfp: pfp3,
+      name: "Cherie Powers",
+      time: "1 hour ago",
+      text: "gonna start studying for finals today. 📚",
+      img: Girl2
+    }
+  ]
+  
   return (
     <>
     {/* // Header */}
@@ -195,22 +228,23 @@ function Dashboard() {
         </section>
 
         <section className="posts">
-          <div className="post">
+          {posts.map(post => (
+            <div className="post" key={post.id}>
             <div className="home-container">
             <div className="post-header">
               <div className="post-name-and-img">
-                <img src={TempPFP} className="post-pfp" alt="" />
+                <img src={post.pfp} className="post-pfp" alt="" />
                 <div>
-                <h3>Ziabeher Phillips</h3>
-                <small>2 hours ago</small>
+                <h3>{post.name}</h3>
+                <small>{post.time}</small>
                 </div>
               </div>
 
               <BsThreeDots />
             </div>
-            hell yea brother
+            <p className="post-text">{post.text}</p>
 
-            <img src={PostBurgers} className="post-img" alt="" />
+            <img src={post.img} className="post-img" alt="" />
 
             <div className="post-interact">
               <div className="like-and-comment">
@@ -225,63 +259,7 @@ function Dashboard() {
             </div>
             </div>
           </div>
-
-          <div className="post">
-            <div className="home-container">
-            <div className="post-header">
-              <div className="post-name-and-img">
-                <img src={TempPFP} className="post-pfp" alt="" />
-                <div>
-                <h3>Ziabeher Phillips</h3>
-                <small>2 hours ago</small>
-                </div>
-              </div>
-
-              <BsThreeDots />
-            </div>
-            hell yea brother
-
-            <img src={PostBurgers} className="post-img" alt="" />
-            </div>
-          </div>
-
-          <div className="post">
-            <div className="home-container">
-            <div className="post-header">
-              <div className="post-name-and-img">
-                <img src={TempPFP} className="post-pfp" alt="" />
-                <div>
-                <h3>Ziabeher Phillips</h3>
-                <small>2 hours ago</small>
-                </div>
-              </div>
-
-              <BsThreeDots />
-            </div>
-            hell yea brother
-
-            <img src={PostBurgers} className="post-img" alt="" />
-            </div>
-          </div>
-
-          <div className="post">
-            <div className="home-container">
-            <div className="post-header">
-              <div className="post-name-and-img">
-                <img src={TempPFP} className="post-pfp" alt="" />
-                <div>
-                <h3>Ziabeher Phillips</h3>
-                <small>2 hours ago</small>
-                </div>
-              </div>
-
-              <BsThreeDots />
-            </div>
-            hell yea brother
-
-            <img src={PostBurgers} className="post-img" alt="" />
-            </div>
-          </div>
+          ))}
         </section>
       </div>
 
