@@ -22,6 +22,8 @@ import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BiRedo } from 'react-icons/bi'
 import { HiOutlineLightningBolt } from 'react-icons/hi'
+import { ImUserPlus } from 'react-icons/im'
+
 function Dashboard() {
 
   const posts = [
@@ -274,24 +276,24 @@ function Dashboard() {
             <div className="r-name-and-img">
               <img src={pfp1} alt="" />
               <div>
-              <h4>Jarrod Broughton</h4>
+              <h5>Jarrod Broughton</h5>
               <small>Product Manager</small>
               </div>
             </div>
 
-            <HiOutlineLightningBolt className="right-sidebar-icon" />
+            <ImUserPlus className="right-sidebar-icon" />
           </div>
 
           <div className="right-sidebar-component">
             <div className="r-name-and-img">
               <img src={pfp2} alt="" />
               <div>
-              <h4>Sarah-Jane Day</h4>
+              <h5>Sarah-Jane Day</h5>
               <small>Product Manager</small>
               </div>
             </div>
 
-            <HiOutlineLightningBolt className="right-sidebar-icon" />
+            <ImUserPlus className="right-sidebar-icon" />
           </div>
 
           <div className="right-sidebar-component">
@@ -303,7 +305,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <HiOutlineLightningBolt className="right-sidebar-icon" />
+            <ImUserPlus className="right-sidebar-icon" />
           </div>
 
           <h3 className="show-more">Show More</h3>
