@@ -21,7 +21,7 @@ import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutl
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BiRedo } from 'react-icons/bi'
-
+import { HiOutlineLightningBolt } from 'react-icons/hi'
 function Dashboard() {
 
   const posts = [
@@ -264,7 +264,51 @@ function Dashboard() {
       </div>
 
 
-      <div className="right">right</div>
+      <section className="right-sidebar">
+        <div className="home-container">
+          <h4 className="sh4">Suggestions for you</h4>
+
+          <div className="suggestions">
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={pfp1} alt="" />
+              <div>
+              <h4>Jarrod Broughton</h4>
+              <small>Product Manager</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={pfp2} alt="" />
+              <div>
+              <h4>Sarah-Jane Day</h4>
+              <small>Product Manager</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={pfp3} alt="" />
+              <div>
+              <h5>Cherie Powers</h5>
+              <small>Product Manager</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <h3 className="show-more">Show More</h3>
+          </div>
+        </div>
+      </section>
     </div>
 
 
