@@ -17,12 +17,15 @@ import twitterLogo  from '../../assets/twitterLogo.png'
 import githubLogo  from '../../assets/githubLogo.png'
 import porgfolioLogo  from '../../assets/portfolioLogo.png'
 import { MdTagFaces } from 'react-icons/md';
-import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage } from 'react-icons/ai'
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiOutlineQuestionCircle } from 'react-icons/ai'
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BiRedo } from 'react-icons/bi'
 import { HiOutlineLightningBolt } from 'react-icons/hi'
 import { ImUserPlus } from 'react-icons/im'
+import { CgProfile } from 'react-icons/cg'
+import { TbRefreshAlert } from 'react-icons/tb'
+import { VscFeedback } from 'react-icons/vsc'
 
 function Dashboard() {
 
@@ -90,6 +93,100 @@ function Dashboard() {
         <div className="nav-option">
           <BsBell className="nav-icon" />
           <h4>Notifications</h4>
+
+          <div className="notifications-dropdown">
+            <div className="home-container">
+            <div className="notif-dropdown-header">
+              <h3>Notifications</h3>
+              <h4>Read all</h4>
+            </div>
+
+            <small>New</small>
+
+            <div className="notification-items">
+              <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+
+                <BsThreeDots />
+              </div>
+              
+              <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+
+                <BsThreeDots />
+              </div>
+
+              <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+              
+              <BsThreeDots />
+              </div>
+
+              <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+              
+              <BsThreeDots />
+              </div>
+            </div>
+
+            <small>Previous</small>
+
+            <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+              
+              <BsThreeDots />
+              </div>
+
+              <div className="notification-item">
+                <img src={TempPFP} alt="" />
+
+                <div>
+                  <p>
+                  Ziabeher Phillips, added 4 new photos
+                  </p>
+                  <small>14 min.</small>
+                </div>
+              
+              <BsThreeDots />
+              </div>
+              
+          </div>
+          </div>
         </div>
 
         <div className="nav-option">
@@ -104,7 +201,41 @@ function Dashboard() {
         <h4>Zabz</h4>
         <IoIosArrowDown className="primary-pink" />
         </div>
+
+        <div className="dropped-profile">
+          <div className="home-container">
+          <h2>Profile</h2>
+
+          <div className="dropdown-components">
+            <div className="dropdown-component">
+              <CgProfile className="dropdown-icon" />
+              <h4>My Profile</h4>
+            </div>
+
+            <div className="dropdown-component">
+              <TbRefreshAlert className="dropdown-icon" />
+              <h4>Change Account</h4>
+            </div>
+
+            <div className="dropdown-component">
+              <FiSettings className="dropdown-icon" />
+              <h4>Settings</h4>
+            </div>
+
+            <div className="dropdown-component">
+              <AiOutlineQuestionCircle className="dropdown-icon" />
+              <h4>Help</h4>
+            </div>
+
+            <div className="dropdown-component">
+              <VscFeedback className="dropdown-icon" />
+              <h4>Give Feedback</h4>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
+
       </div>
     </div>
     
