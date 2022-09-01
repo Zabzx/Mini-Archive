@@ -265,6 +265,7 @@ function Dashboard() {
 
 
       <section className="right-sidebar">
+        <div className="right-sidebar-section">
         <div className="home-container">
           <h4 className="sh4">Suggestions for you</h4>
 
@@ -307,6 +308,53 @@ function Dashboard() {
 
           <h3 className="show-more">Show More</h3>
           </div>
+        </div>
+        </div>
+
+        <div className="right-sidebar-section">
+        <div className="home-container">
+          <h4 className="sh4">Popular Pages</h4>
+
+          <div className="suggestions">
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={twitterLogo} alt="" />
+              <div>
+              <h4>Twitter</h4>
+              <small>Social Media Platform</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={githubLogo} alt="" />
+              <div>
+              <h4>GitHub</h4>
+              <small>Coding Platform</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <div className="right-sidebar-component">
+            <div className="r-name-and-img">
+              <img src={porgfolioLogo} alt="" />
+              <div>
+              <h5>Portfolio</h5>
+              <small>The best portfolio</small>
+              </div>
+            </div>
+
+            <HiOutlineLightningBolt className="right-sidebar-icon" />
+          </div>
+
+          <h3 className="show-more">Show More</h3>
+          </div>
+        </div>
         </div>
       </section>
     </div>
