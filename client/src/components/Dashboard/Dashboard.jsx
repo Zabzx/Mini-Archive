@@ -26,6 +26,8 @@ import { ImUserPlus } from 'react-icons/im'
 import { CgProfile } from 'react-icons/cg'
 import { TbRefreshAlert } from 'react-icons/tb'
 import { VscFeedback } from 'react-icons/vsc'
+// Framer Motion
+import { motion, AnimatePresence } from "framer-motion"
 
 function Dashboard() {
 
@@ -39,6 +41,11 @@ function Dashboard() {
 
   const openNotifications = () => {
     setNotificationDropdown(!notificationDropdown);
+  }
+
+  const closeDropdown = () => {
+    setNotificationDropdown(false);
+    setProfileDropdown(false);
   }
 
   const posts = [
@@ -71,6 +78,8 @@ function Dashboard() {
   return (
     <>
     {/* // Header */}
+    {/* overlay */}
+    { profileDropdown || notificationDropdown ? <div className="overlay" onClick={closeDropdown}></div> : ''}
     <div className="home">
     <div className="home-nav">
       <div className="home-container home-flex">
@@ -102,11 +111,13 @@ function Dashboard() {
           <h4>Messages</h4>
         </div>
 
-        <div className="nav-option" onClick={openNotifications}>
-          <BsBell className="nav-icon" />
+        <div className={ notificationDropdown ? "nav-option notif-active" : "nav-option notif"} onClick={openNotifications}>
+          <BsBell className={ notificationDropdown ? "icon-active" : "nav-icon"}/>
           <h4>Notifications</h4>
+          </div>
 
-          { notificationDropdown ? <div className="notifications-dropdown">
+          <AnimatePresence>
+          { notificationDropdown ? <motion.div initial={{ x: '100px' }} animate={{ x: '0px' }} exit={{ y: '100px', opacity: 0 }} className="notifications-dropdown">
             <div className="home-container">
             <div className="notif-dropdown-header">
               <h3>Notifications</h3>
@@ -198,8 +209,8 @@ function Dashboard() {
               </div>
               
           </div>
-          </div> : ''}
-        </div>
+          </motion.div> : ''}
+          </AnimatePresence>
 
         <div className="nav-option">
           <BsTools className="nav-icon" />
@@ -214,7 +225,8 @@ function Dashboard() {
         <IoIosArrowDown className="primary-pink" />
         </div>
 
-        { profileDropdown ? <div className="dropped-profile">
+        <AnimatePresence>
+        { profileDropdown ? <motion.div initial={{ x: '-100px' }} animate={{ x: '0px' }} exit={{ y: '100px', opacity: 0}} className="dropped-profile">
           <div className="home-container">
           <h2>Profile</h2>
 
@@ -245,7 +257,8 @@ function Dashboard() {
             </div>
           </div>
           </div>
-        </div> : ''}
+        </motion.div> : ''}
+        </AnimatePresence>
       </div>
 
       </div>
