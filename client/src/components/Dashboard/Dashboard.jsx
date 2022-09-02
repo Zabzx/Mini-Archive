@@ -1,13 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
-// Post Images
-import Girl1 from '../../assets/post-girl-1.jpg'
-import Girl2 from '../../assets/post-girl-2.jpg'
-import pfp1 from '../../assets/pfp-1.jpg'
-import pfp2 from '../../assets/pfp-2.jpg'
-import pfp3 from '../../assets/pfp-3.jpg'
-import PostBurgers from '../../assets/post-burgers.jpg';
 // React Icons
 import { GoHome } from 'react-icons/go'
 import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
@@ -26,13 +19,26 @@ import { ImUserPlus } from 'react-icons/im'
 import { CgProfile } from 'react-icons/cg'
 import { TbRefreshAlert } from 'react-icons/tb'
 import { VscFeedback } from 'react-icons/vsc'
+// Images
+import pfp1 from '../../assets/pfp-1.jpg'
+import pfp2 from '../../assets/pfp-2.jpg'
+import pfp3 from '../../assets/pfp-3.jpg'
 // Framer Motion
 import { motion, AnimatePresence } from "framer-motion"
+// Context
+import { PostContext } from "../../context/PostContext";
 
 function Dashboard() {
-
+  // State
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [notificationDropdown, setNotificationDropdown] = useState(false);
+  const [postInput, setPostInput] = useState({
+    id: Math.floor(Math.random() * 1000),
+    text: "",
+    pfp: TempPFP,
+    name: 'temporary name',
+    time: 'Just now'
+  });
 
   const openProfile = () => {
     console.log('wtf')
@@ -48,32 +54,15 @@ function Dashboard() {
     setProfileDropdown(false);
   }
 
-  const posts = [
-    {
-      id: 1,
-      pfp: pfp1,
-      name: "Jarrod Broughton",
-      time: "2 hours ago",
-      text: "hell yea brother",
-      img: PostBurgers
-    },
-    {
-      id: 2,
-      pfp: pfp2,
-      name: "Sarah-Jane Day",
-      time: "34 minutes ago",
-      text: "Shooting for Samsung today!",
-      img: Girl1
-    },
-    {
-      id: 3,
-      pfp: pfp3,
-      name: "Cherie Powers",
-      time: "1 hour ago",
-      text: "gonna start studying for finals today. 📚",
-      img: Girl2
+  const postSomething = () => {
+    if (postInput.text === "") {
+      return
     }
-  ]
+
+    setPosts([postInput, ...posts])
+  }
+
+  const [posts, setPosts] = useContext(PostContext)
   
   return (
     <>
@@ -114,6 +103,10 @@ function Dashboard() {
         <div className={ notificationDropdown ? "nav-option notif-active" : "nav-option notif"} onClick={openNotifications}>
           <BsBell className={ notificationDropdown ? "icon-active" : "nav-icon"}/>
           <h4>Notifications</h4>
+
+          <div className="notif-notification">
+              <p>9</p>
+            </div>
           </div>
 
           <AnimatePresence>
@@ -344,7 +337,7 @@ function Dashboard() {
           <div className="home-container">
           <div className="img-and-input">
             <img src={TempPFP} alt="" />
-            <input type="text" placeholder="Say something..." />
+            <input type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
 
             <MdTagFaces className="search-emoji" />
           </div>
@@ -377,9 +370,8 @@ function Dashboard() {
               Mention
             </li>
 
-            <li>
-              Public
-              <IoIosArrowDown className="primary-pink" />
+            <li className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={postSomething}>
+              Post
             </li>
           </ul>
         </div>
