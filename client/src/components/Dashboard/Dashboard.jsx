@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
 // Post Images
@@ -29,6 +29,18 @@ import { VscFeedback } from 'react-icons/vsc'
 
 function Dashboard() {
 
+  const [profileDropdown, setProfileDropdown] = useState(false);
+  const [notificationDropdown, setNotificationDropdown] = useState(false);
+
+  const openProfile = () => {
+    console.log('wtf')
+    setProfileDropdown(!profileDropdown);
+  }
+
+  const openNotifications = () => {
+    setNotificationDropdown(!notificationDropdown);
+  }
+
   const posts = [
     {
       id: 1,
@@ -47,7 +59,7 @@ function Dashboard() {
       img: Girl1
     },
     {
-      id: 2,
+      id: 3,
       pfp: pfp3,
       name: "Cherie Powers",
       time: "1 hour ago",
@@ -90,11 +102,11 @@ function Dashboard() {
           <h4>Messages</h4>
         </div>
 
-        <div className="nav-option">
+        <div className="nav-option" onClick={openNotifications}>
           <BsBell className="nav-icon" />
           <h4>Notifications</h4>
 
-          <div className="notifications-dropdown">
+          { notificationDropdown ? <div className="notifications-dropdown">
             <div className="home-container">
             <div className="notif-dropdown-header">
               <h3>Notifications</h3>
@@ -186,7 +198,7 @@ function Dashboard() {
               </div>
               
           </div>
-          </div>
+          </div> : ''}
         </div>
 
         <div className="nav-option">
@@ -196,13 +208,13 @@ function Dashboard() {
       </div>
 
       <div className="profile-dropdown-container">
-        <div className="profile-dropdown">
+        <div className="profile-dropdown" onClick={openProfile}>
         <img src={TempPFP} className="profile-dropdown-img" alt="" />
         <h4>Zabz</h4>
         <IoIosArrowDown className="primary-pink" />
         </div>
 
-        <div className="dropped-profile">
+        { profileDropdown ? <div className="dropped-profile">
           <div className="home-container">
           <h2>Profile</h2>
 
@@ -233,7 +245,7 @@ function Dashboard() {
             </div>
           </div>
           </div>
-        </div>
+        </div> : ''}
       </div>
 
       </div>

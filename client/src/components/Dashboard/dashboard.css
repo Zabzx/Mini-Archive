@@ -84,6 +84,7 @@
     padding: 1rem;
     border-radius: 30px;
     position: relative;
+    cursor: pointer;
 }
 
 .profile-dropdown-img {
