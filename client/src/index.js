@@ -6,18 +6,24 @@ import App from './App';
 import SignUp from './components/Sign-Up/SignUp.jsx'
 import LogIn from './components/Log-In/LogIn';
 import Dashboard from './components/Dashboard/Dashboard';
+import PrivateRoutes from './components/PrivateRoute';
 // Context
 import { PostContextProvider } from './context/PostContext';
+import { UserContextProvider } from './context/User';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+  <UserContextProvider>
   <PostContextProvider>
   <Routes>
+    <Route element={<PrivateRoutes />}>
     <Route path="/" element={<Dashboard />} />
+    </Route>
     <Route path="/signup" element={<SignUp />} />
     <Route path="/login" element={<LogIn />} />
     </Routes>
     </PostContextProvider>
+    </UserContextProvider>
     </BrowserRouter>
 );

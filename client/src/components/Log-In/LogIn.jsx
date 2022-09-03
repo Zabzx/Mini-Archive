@@ -1,16 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import './login.css'
+import { UserContext } from '../../context/User'
 
 const LogIn = () => {
+    const [user, setUser] = useContext(UserContext);
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
 
     const [error, setError] = useState("");
 
+    useEffect(() => {
+        console.log(user)
+    }, [])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (emailRef.current.value === user.email && passwordRef.current.value === user.password) {
+            setUser({...user, loggedIn: true});
+            navigate('/');
+        } else {
+            setError("Failed to log in.")
+        }
     }
     return (
       <>

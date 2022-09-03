@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { useNavigate, Link } from 'react-router-dom';
 import './signup.css';
+import { UserContext } from '../../context/User';
 
 const SignUp = () => {
     let navigate = useNavigate();
@@ -27,6 +28,13 @@ const SignUp = () => {
             return;
         }
 
+    }
+
+    const [user, setUser] = useContext(UserContext);
+
+    const createUser = () => {
+        setUser({...user, username: usernameRef.current.value, email: emailRef.current.value, password: passwordRef.current.value})
+        navigate('/login');
     }
 
   return (
@@ -98,7 +106,7 @@ const SignUp = () => {
         </div>
 
         <div className="form-container">
-        <button className="btn-full">Create Account</button>
+        <button className="btn-full" onClick={createUser}>Create Account</button>
         </div>
     </form>
     </div>
