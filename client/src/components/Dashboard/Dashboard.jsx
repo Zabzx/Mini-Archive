@@ -348,34 +348,35 @@ function Dashboard() {
 
           <div className="post-options home-container">
           <ul>
+
+          <AiOutlinePicture className="post-option-icon" style={{color: 'var(--primary-blue)'}} />
             <li>
-              <AiOutlinePicture className="post-option-icon" style={{color: 'var(--primary-blue)'}} />
               Image
             </li>
 
+            <AiFillCamera style={{color: '#88E26E'}} className="post-option-icon" />
             <li>
-              <AiFillCamera style={{color: '#88E26E'}} className="post-option-icon" />
               Video
             </li>
 
+            <AiOutlinePaperClip style={{color: '#ECBD59'}} className="post-option-icon" />
             <li>
-              <AiOutlinePaperClip style={{color: '#ECBD59'}} className="post-option-icon" />
               Attatchment
             </li>
 
+            <FaHashtag style={{color: '#EC5959'}} className="post-option-icon" />
             <li>
-              <FaHashtag style={{color: '#EC5959'}} className="post-option-icon" />
               Hashtag
             </li>
 
+            <TiAt className="post-option-icon" />
             <li>
-              <TiAt className="post-option-icon" />
               Mention
             </li>
 
-            <li className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={postSomething}>
+            <button className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={postSomething}>
               Post
-            </li>
+            </button>
           </ul>
         </div>
         </section>
