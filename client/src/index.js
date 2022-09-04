@@ -10,20 +10,23 @@ import PrivateRoutes from './components/PrivateRoute';
 // Context
 import { PostContextProvider } from './context/PostContext';
 import { UserContextProvider } from './context/User';
+import { LoggedInContextProvider } from './context/LoggedInContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <UserContextProvider>
+  <LoggedInContextProvider>
   <PostContextProvider>
   <Routes>
     <Route element={<PrivateRoutes />}>
-    <Route path="/" element={<Dashboard />} />
+    <Route path="/" element={<Dashboard />}/>
     </Route>
     <Route path="/signup" element={<SignUp />} />
     <Route path="/login" element={<LogIn />} />
     </Routes>
     </PostContextProvider>
+    </LoggedInContextProvider>
     </UserContextProvider>
     </BrowserRouter>
 );

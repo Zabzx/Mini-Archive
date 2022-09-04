@@ -27,8 +27,11 @@ import pfp3 from '../../assets/pfp-3.jpg'
 import { motion, AnimatePresence } from "framer-motion"
 // Context
 import { PostContext } from "../../context/PostContext";
+import { UserContext } from "../../context/User";
 
 function Dashboard() {
+  // Context
+  const [user, setUser] = useContext(UserContext);
   // State
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [notificationDropdown, setNotificationDropdown] = useState(false);
@@ -36,7 +39,7 @@ function Dashboard() {
     id: Math.floor(Math.random() * 1000),
     text: "",
     pfp: TempPFP,
-    name: 'temporary name',
+    name: user.username,
     time: 'Just now'
   });
 
@@ -214,7 +217,7 @@ function Dashboard() {
       <div className="profile-dropdown-container">
         <div className="profile-dropdown" onClick={openProfile}>
         <img src={TempPFP} className="profile-dropdown-img" alt="" />
-        <h4>Zabz</h4>
+        <h4>{user.username}</h4>
         <IoIosArrowDown className="primary-pink" />
         </div>
 
@@ -267,7 +270,7 @@ function Dashboard() {
         <div className="left-personal">
           <div className="left-personal-name">
           <img src={TempPFP} alt="" />
-          <h4>Ziabeher Phillips</h4>
+          <h4>{user.username}</h4>
           <small>Port of Spain, Trinidad</small>
           </div>
           <FiSettings />

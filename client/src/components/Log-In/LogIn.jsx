@@ -2,27 +2,29 @@ import React, { useState, useContext, useRef, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import './login.css'
 import { UserContext } from '../../context/User'
+import { LoggedInContext } from '../../context/LoggedInContext'
 
 const LogIn = () => {
-    const [user, setUser] = useContext(UserContext);
     const navigate = useNavigate();
+
+    const [user, setUser] = useContext(UserContext);
+    const [loggedIn, setLoggedIn] = useContext(LoggedInContext)
+    const [handleNavigate, setHandleNavigate] = useState(0);
     const emailRef = useRef();
     const passwordRef = useRef();
 
     const [error, setError] = useState("");
 
     useEffect(() => {
-        console.log(user)
-    }, [])
 
-    const handleSubmit = async (e) => {
+    }, [user])
+
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (emailRef.current.value === user.email && passwordRef.current.value === user.password) {
-            setUser({...user, loggedIn: true});
-            navigate('/');
-        } else {
-            setError("Failed to log in.")
+            setLoggedIn(true);
+            navigate('/')
         }
     }
     return (
