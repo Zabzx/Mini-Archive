@@ -6,7 +6,7 @@
     right: 0;
     left: 0;
     z-index: 9;
-    pointer-events: all;
+    pointer-events: none;
 }
 .home {
     background-color: #EDEDED;
@@ -170,9 +170,12 @@
 }
 
 .dropdown-component {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .dropdown-icon {

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
+import { Link } from "react-router-dom";
 // React Icons
 import { GoHome } from 'react-icons/go'
 import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
@@ -23,6 +24,7 @@ import { VscFeedback } from 'react-icons/vsc'
 import pfp1 from '../../assets/pfp-1.jpg'
 import pfp2 from '../../assets/pfp-2.jpg'
 import pfp3 from '../../assets/pfp-3.jpg'
+import placeholderPFP from '../../assets/placeholder-pfp.png'
 // Framer Motion
 import { motion, AnimatePresence } from "framer-motion"
 // Context
@@ -38,7 +40,7 @@ function Dashboard() {
   const [postInput, setPostInput] = useState({
     id: Math.floor(Math.random() * 1000),
     text: "",
-    pfp: TempPFP,
+    pfp: user.pfp,
     name: user.username,
     time: 'Just now'
   });
@@ -216,7 +218,7 @@ function Dashboard() {
 
       <div className="profile-dropdown-container">
         <div className="profile-dropdown" onClick={openProfile}>
-        <img src={TempPFP} className="profile-dropdown-img" alt="" />
+        <img src={ user.pfp ? user.pfp : placeholderPFP } className="profile-dropdown-img" alt="" />
         <h4>{user.username}</h4>
         <IoIosArrowDown className="primary-pink" />
         </div>
@@ -227,10 +229,12 @@ function Dashboard() {
           <h2>Profile</h2>
 
           <div className="dropdown-components">
+            <Link to="/profile">
             <div className="dropdown-component">
               <CgProfile className="dropdown-icon" />
               <h4>My Profile</h4>
             </div>
+            </Link>
 
             <div className="dropdown-component">
               <TbRefreshAlert className="dropdown-icon" />
@@ -269,7 +273,7 @@ function Dashboard() {
 
         <div className="left-personal">
           <div className="left-personal-name">
-          <img src={TempPFP} alt="" />
+          <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
           <h4>{user.username}</h4>
           <small>Port of Spain, Trinidad</small>
           </div>
@@ -339,7 +343,7 @@ function Dashboard() {
         <section className="post-form">
           <div className="home-container">
           <div className="img-and-input">
-            <img src={TempPFP} alt="" />
+            <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
             <input type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
 
             <MdTagFaces className="search-emoji" />

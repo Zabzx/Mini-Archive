@@ -1,0 +1,117 @@
+.profile-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+    gap: 2rem;
+}
+
+.profile-img {
+    position: relative;
+}
+
+.edit-pfp {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+}
+
+.edit-pfp:hover ~ .pfp-overlay {
+    display: block;
+}
+
+.pfp-overlay {
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    border-radius: 50%;
+    opacity: .8;
+    text-align: center;
+    z-index: 2;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.pfp-confirm {
+    margin-top: 1rem;
+}
+
+.pfp-alert {
+    color: rgb(0, 97, 10);
+    background-color: rgb(115, 252, 142);
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 30%;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Edit popup */
+.edit-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.edit-popup-header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.cross-btn {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.edit-popup input {
+    width: 100%;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 20px;
+    padding: .8rem;
+    font-size: 1.1rem;
+}
+
+.edit-input-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.edit-popup input:focus {
+    outline: none;
+}
+
+.profile-container  {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.edit-btn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.edit-alert {
+    color: rgb(0, 97, 10);
+    background-color: rgb(115, 252, 142);
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 90%;
+}
