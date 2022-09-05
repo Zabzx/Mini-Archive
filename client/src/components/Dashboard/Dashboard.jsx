@@ -30,23 +30,25 @@ import { motion, AnimatePresence } from "framer-motion"
 // Context
 import { PostContext } from "../../context/PostContext";
 import { UserContext } from "../../context/User";
+import { LikedPostContext } from "../../context/LikedPostsContext";
 
 function Dashboard() {
   // Context
   const [user, setUser] = useContext(UserContext);
+  const [likedPosts, setLikedPosts] = useContext(LikedPostContext);
   // State
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [notificationDropdown, setNotificationDropdown] = useState(false);
   const [postInput, setPostInput] = useState({
-    id: Math.floor(Math.random() * 1000),
+    id: Math.floor(Math.random() * 100000),
     text: "",
-    pfp: user.pfp,
+    pfp: user.pfp ? user.pfp : placeholderPFP,
     name: user.username,
-    time: 'Just now'
+    time: 'Just now',
+    liked: false,
   });
 
   const openProfile = () => {
-    console.log('wtf')
     setProfileDropdown(!profileDropdown);
   }
 
@@ -65,6 +67,16 @@ function Dashboard() {
     }
 
     setPosts([postInput, ...posts])
+  }
+
+  const likePost = (post) => {
+    setLikedPosts([post, ...likedPosts])
+    console.log(likedPosts);
+  }
+
+  const unlikePost = (item) => {
+    setLikedPosts(likedPosts.filter(post => post.id != item.id))
+    item.liked = !item.liked;
   }
 
   const [posts, setPosts] = useContext(PostContext)
@@ -270,7 +282,8 @@ function Dashboard() {
       <div className="lsbc">
       <div className="left-sidebar">
         <div className="home-container">
-
+        
+        <Link to="/profile">
         <div className="left-personal">
           <div className="left-personal-name">
           <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
@@ -279,6 +292,7 @@ function Dashboard() {
           </div>
           <FiSettings />
         </div>
+        </Link>
 
         <div className="pages">
         <small>YOUR PAGES</small>
@@ -406,9 +420,16 @@ function Dashboard() {
 
             <div className="post-interact">
               <div className="like-and-comment">
-                <AiFillHeart className="post-interact-icon unliked" />
+                <AiFillHeart onClick={() => {
+                  if (!post.liked) {
+                    likePost(post)
+                    post.liked = !post.liked;
+                  } else {
+                    unlikePost(post);
+                  }
+                }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
                 <AiOutlineMessage className="post-interact-icon" />
-                <BiRedo className="post-interact-icon" />
+                <BiRedo className="post-interact-icon"/>
               </div>
 
               <div className="post-share">

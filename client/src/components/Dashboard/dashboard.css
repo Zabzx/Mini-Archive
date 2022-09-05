@@ -5,8 +5,8 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 9;
-    pointer-events: none;
+    z-index: 5;
+    pointer-events: all;
 }
 .home {
     background-color: #EDEDED;
@@ -126,7 +126,7 @@
     border-radius: 30px;
     position: relative;
     cursor: pointer;
-    z-index: 2;
+    z-index: 10;
 }
 
 .profile-dropdown-img {
@@ -144,7 +144,7 @@
     height: 50vh;
     border: 1px solid #e8e8e8;
     border-radius: 20px;
-    z-index: 2;
+    z-index: 6;
 }
 
 .dropped-profile h2 {
@@ -455,6 +455,12 @@ ul {
 
 .unliked {
     color: #9B9B9B;
+    cursor: pointer;
+}
+
+.liked {
+    color: red;
+    cursor: pointer;
 }
 
 .post-interact {
@@ -589,7 +595,7 @@ ul {
     /* Profile dropdown */
     .dropped-profile {
         top: -380px;
-        font-size: .5rem;
+        font-size: .7rem;
         width: 40%;
     }
 

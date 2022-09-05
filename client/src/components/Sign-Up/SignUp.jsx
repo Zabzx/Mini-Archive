@@ -28,14 +28,12 @@ const SignUp = () => {
             return;
         }
 
+        setUser({...user, username: usernameRef.current.value, email: emailRef.current.value, password: passwordRef.current.value})
+        navigate('/login');
+
     }
 
     const [user, setUser] = useContext(UserContext);
-
-    const createUser = () => {
-        setUser({...user, username: usernameRef.current.value, email: emailRef.current.value, password: passwordRef.current.value})
-        navigate('/login');
-    }
 
   return (
     <>
@@ -106,7 +104,7 @@ const SignUp = () => {
         </div>
 
         <div className="form-container">
-        <button className="btn-full" onClick={createUser}>Create Account</button>
+        <button className="btn-full">Create Account</button>
         </div>
     </form>
     </div>

@@ -115,3 +115,69 @@
     margin: 1rem auto;
     width: 90%;
 }
+
+/* Liked Posts */
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.profile-post {
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: 1px solid #9B9B9B;
+    width: 40%;
+}
+
+.post-header {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.post-name-and-img {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-pfp {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.post-img {
+    border-radius: 10px;
+    margin-top: .6rem;
+    object-fit: contain;
+}
+
+.unliked {
+    color: #9B9B9B;
+    cursor: pointer;
+}
+
+.liked {
+    color: red;
+    cursor: pointer;
+}
+
+.post-interact {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.like-and-comment {
+    display: flex;
+    gap: 1rem;
+}
+
+.post-interact-icon {
+    font-size: 2rem;
+}

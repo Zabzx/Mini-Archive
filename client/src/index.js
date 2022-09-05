@@ -7,11 +7,12 @@ import SignUp from './components/Sign-Up/SignUp.jsx'
 import LogIn from './components/Log-In/LogIn';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoutes from './components/PrivateRoute';
+import Profile from './components/Profile/Profile';
 // Context
 import { PostContextProvider } from './context/PostContext';
 import { UserContextProvider } from './context/User';
 import { LoggedInContextProvider } from './context/LoggedInContext';
-import Profile from './components/Profile/Profile';
+import { LikedPostContextProvider } from './context/LikedPostsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
   <UserContextProvider>
   <LoggedInContextProvider>
   <PostContextProvider>
+  <LikedPostContextProvider>
   <Routes>
     <Route element={<PrivateRoutes />}>
     <Route path="/" element={<Dashboard />}/>
@@ -27,6 +29,7 @@ root.render(
     <Route path="/signup" element={<SignUp />} />
     <Route path="/login" element={<LogIn />} />
     </Routes>
+    </LikedPostContextProvider>
     </PostContextProvider>
     </LoggedInContextProvider>
     </UserContextProvider>

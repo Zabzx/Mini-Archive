@@ -17,7 +17,8 @@ export const PostContextProvider = (props) => {
           name: "Jarrod Broughton",
           time: "2 hours ago",
           text: "hell yea brother",
-          img: PostBurgers
+          img: PostBurgers,
+          liked: false
         },
         {
           id: 2,
@@ -25,7 +26,8 @@ export const PostContextProvider = (props) => {
           name: "Sarah-Jane Day",
           time: "34 minutes ago",
           text: "Shooting for Samsung today!",
-          img: Girl1
+          img: Girl1,
+          liked: false
         },
         {
           id: 3,
@@ -33,7 +35,8 @@ export const PostContextProvider = (props) => {
           name: "Cherie Powers",
           time: "1 hour ago",
           text: "gonna start studying for finals today. 📚",
-          img: Girl2
+          img: Girl2,
+          liked: false
         }
       ]);
 

@@ -2,15 +2,21 @@ import React, { useContext, useState, useEffect } from 'react'
 import './profile.css'
 import TempPFP from '../../assets/temp-pfp.jpg'
 import {UserContext} from '../../context/User'
+import { LikedPostContext } from '../../context/LikedPostsContext'
 import { Link } from 'react-router-dom'
 import placeholderPFP from '../../assets/placeholder-pfp.png'
 // Framer motion
 import { motion, AnimatePresence } from 'framer-motion'
 // Icons
 import { ImCross } from 'react-icons/im'
+import { BsThreeDots } from 'react-icons/bs'
+import { AiFillHeart, AiOutlineMessage } from 'react-icons/ai'
+import { BiRedo } from 'react-icons/bi'
+import { FaRegPaperPlane } from 'react-icons/fa'
 
 const Profile = () => {
     const [user, setUser] = useContext(UserContext);
+    const [likedPosts, setLikedPosts] = useContext(LikedPostContext);
     const [userImage, setUserImage] = useState('');
     const [loadedUserImage, setLoadedUserImage] = useState('');
     const [confirmImg, setConfirmImg] = useState(false);
@@ -66,6 +72,16 @@ const Profile = () => {
         setEditAlert(true);
     }
 
+    const likePost = (post) => {
+        setLikedPosts([post, ...likedPosts])
+        console.log(likedPosts);
+      }
+    
+      const unlikePost = (item) => {
+        setLikedPosts(likedPosts.filter(post => post.id != item.id))
+        item.liked = !item.liked;
+      }
+
   return (
     <>
     <section className="profile">
@@ -93,6 +109,51 @@ const Profile = () => {
         </div>
 
         { pfpAlert ? <h2 className="pfp-alert">New profile picture has been set!</h2> : ""}
+
+        <h2 className="profile-container">Liked Posts</h2>
+        { likePost.length !== 0 ? <p className="home-container">No Liked posts yet. Get busy!</p> : ""}
+        <div className="liked-posts profile-container">
+        {likedPosts.map(post => (
+            <div className="profile-post" key={post.id}>
+            <div className="home-container">
+            <div className="post-header">
+              <div className="post-name-and-img">
+                <img src={post.pfp} className="post-pfp" alt="" />
+                <div>
+                <h3>{post.name}</h3>
+                <small>{post.time}</small>
+                </div>
+              </div>
+
+              <BsThreeDots />
+            </div>
+            <p className="post-text">{post.text}</p>
+
+            <img src={post.img} className="post-img" alt="" />
+
+            <div className="post-interact">
+              <div className="like-and-comment">
+              <AiFillHeart onClick={() => {
+                  if (!post.liked) {
+                    likePost(post)
+                    post.liked = !post.liked;
+                  } else {
+                    unlikePost(post);
+                  }
+                }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
+
+                <AiOutlineMessage className="post-interact-icon" />
+                <BiRedo className="post-interact-icon"/>
+              </div>
+
+              <div className="post-share">
+                <FaRegPaperPlane className="post-interact-icon" />
+              </div>
+            </div>
+            </div>
+          </div>
+        ))}
+        </div>
     </section>
 
     <AnimatePresence>

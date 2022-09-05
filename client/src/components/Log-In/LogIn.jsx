@@ -25,6 +25,8 @@ const LogIn = () => {
         if (emailRef.current.value === user.email && passwordRef.current.value === user.password) {
             setLoggedIn(true);
             navigate('/')
+        } else {
+            setError("Failed to log in");
         }
     }
     return (
