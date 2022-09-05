@@ -111,7 +111,7 @@ const Profile = () => {
         { pfpAlert ? <h2 className="pfp-alert">New profile picture has been set!</h2> : ""}
 
         <h2 className="profile-container">Liked Posts</h2>
-        { likePost.length !== 0 ? <p className="home-container">No Liked posts yet. Get busy!</p> : ""}
+        { likedPosts.length === 0 ? <p className="home-container">No Liked posts yet. Get busy!</p> : ""}
         <div className="liked-posts profile-container">
         {likedPosts.map(post => (
             <div className="profile-post" key={post.id}>

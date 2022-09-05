@@ -24,6 +24,7 @@ import { VscFeedback } from 'react-icons/vsc'
 import pfp1 from '../../assets/pfp-1.jpg'
 import pfp2 from '../../assets/pfp-2.jpg'
 import pfp3 from '../../assets/pfp-3.jpg'
+import pfp4 from '../../assets/pfp-4.jpg'
 import placeholderPFP from '../../assets/placeholder-pfp.png'
 // Framer Motion
 import { motion, AnimatePresence } from "framer-motion"
@@ -138,11 +139,11 @@ function Dashboard() {
 
             <div className="notification-items">
               <div className="notification-item">
-                <img src={TempPFP} alt="" />
+                <img src={pfp4} alt="" />
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Caspian Duffy added 4 new photos.
                   </p>
                   <small>14 min.</small>
                 </div>
@@ -155,7 +156,7 @@ function Dashboard() {
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Avni Farrell, uploaded 3 new posts.
                   </p>
                   <small>14 min.</small>
                 </div>
@@ -164,11 +165,11 @@ function Dashboard() {
               </div>
 
               <div className="notification-item">
-                <img src={TempPFP} alt="" />
+                <img src={pfp4} alt="" />
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Caspian Duffy, accepted your friend request.
                   </p>
                   <small>14 min.</small>
                 </div>
@@ -181,7 +182,7 @@ function Dashboard() {
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Avni Farrell, added 14 new photos.
                   </p>
                   <small>14 min.</small>
                 </div>
@@ -197,7 +198,7 @@ function Dashboard() {
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Avni Farrell, changed their profile picture.
                   </p>
                   <small>14 min.</small>
                 </div>
@@ -210,7 +211,7 @@ function Dashboard() {
 
                 <div>
                   <p>
-                  Ziabeher Phillips, added 4 new photos
+                  Avni Farrell, accepted your friend request.
                   </p>
                   <small>14 min.</small>
                 </div>
