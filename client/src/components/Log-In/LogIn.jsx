@@ -39,7 +39,7 @@ const LogIn = () => {
       </div>
   
           <div className="logo-text">
-              <h1>ini Archive</h1>
+              <h1>ini Media</h1>
           </div>
   
       </div>
