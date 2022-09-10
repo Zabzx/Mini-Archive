@@ -1,9 +1,36 @@
-.profile-flex {
+.profile {
+    margin-top: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 10rem;
-    gap: 2rem;
+    justify-content: space-between;
+}
+
+.profile-flex {
+    align-self: flex-start;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-btn {
+    text-align: end;
+}
+
+
+.profile-btn button {
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 1.6rem;
+    background-color: var(--primary-pink);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+
+.pfp-input {
+    margin-top: 1rem;
 }
 
 .profile-img {
@@ -52,6 +79,7 @@
 .back-to-home {
     text-align: center;
     margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 
 /* Edit popup */
@@ -117,6 +145,12 @@
 }
 
 /* Liked Posts */
+
+.liked-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 .posts {
     display: flex;
     flex-direction: column;
@@ -127,7 +161,7 @@
     margin-top: 1rem;
     border-radius: 20px;
     border: 1px solid #9B9B9B;
-    width: 40%;
+    width: 60%;
 }
 
 .post-header {

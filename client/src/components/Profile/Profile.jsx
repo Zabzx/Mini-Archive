@@ -84,8 +84,9 @@ const Profile = () => {
 
   return (
     <>
-    <section className="profile">
-        <h2 className="back-to-home">Back to <Link to="/">Home</Link></h2>
+    <h2 className="back-to-home">Back to <Link to="/">Home</Link></h2>
+    <section className="profile profile-container">
+
         <div className="profile-flex">
         <div className="profile-img">
             <img className="edit-pfp" src={ loadedUserImage ? loadedUserImage : placeholderPFP} alt="" />
@@ -104,15 +105,18 @@ const Profile = () => {
             <h2>Email: <span className="primary-blue">{user.email}</span></h2>
             <h2>Username: <span className="primary-blue">{user.username}</span></h2>
 
-            <button className='btn' onClick={openEditPopup}>Edit</button>
+            <div className="profile-btn">
+            <button onClick={openEditPopup}>Edit</button>
+            </div>
         </div>
         </div>
 
         { pfpAlert ? <h2 className="pfp-alert">New profile picture has been set!</h2> : ""}
 
-        <h2 className="profile-container">Liked Posts</h2>
+        <div className="liked-posts">
+        <h2>Liked Posts</h2>
         { likedPosts.length === 0 ? <p className="home-container">No Liked posts yet. Get busy!</p> : ""}
-        <div className="liked-posts profile-container">
+        <div className="liked-posts">
         {likedPosts.map(post => (
             <div className="profile-post" key={post.id}>
             <div className="home-container">
@@ -153,6 +157,7 @@ const Profile = () => {
             </div>
           </div>
         ))}
+        </div>
         </div>
     </section>
 
