@@ -4,6 +4,7 @@ Sign up and login page that requires a user to access the protected routes (home
 
 ![image](https://user-images.githubusercontent.com/88985587/189552061-59efddcc-d595-4c3d-b7f9-8f774ce43ab3.png)
 Home UI containing posts, links and dropdown menues with smooth animations using Framer Motion.
+Took a lot of insiration from Erşad Başbağ on dribble: https://dribbble.com/ersadwork please check out his great work!
 
 ![image](https://user-images.githubusercontent.com/88985587/189552247-7b28eaaa-c9e5-4964-a723-5d8df63355db.png)
 Profile section where users can upload profile pictures and change their username and email.
