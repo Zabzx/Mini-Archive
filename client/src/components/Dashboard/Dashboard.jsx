@@ -297,6 +297,8 @@ function Dashboard() {
 
         <div className="pages">
         <small>YOUR PAGES</small>
+
+        <a href="https://twitter.com/zabzDev" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
         <div className="left-sidebar-component">
           <img src={twitterLogo} alt="" />
 
@@ -309,11 +311,14 @@ function Dashboard() {
               <p>2</p>
             </div>
         </div>
+        </a>
 
         <h5 className="primary-blue">View All</h5>
 
         <div className="projects">
         <small>YOUR PROJECTS</small>
+
+        <a href="https://github.com/Zabzx" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
         <div className="left-sidebar-component">
           <img src={githubLogo} alt="" />
           <div className="lsc-details">
@@ -325,7 +330,9 @@ function Dashboard() {
               <p>4</p>
             </div>
         </div>
+        </a>
 
+        <a href="https://zabzportfolio.netlify.app/" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
         <div className="left-sidebar-component">
           <img src={porgfolioLogo} alt="" />
           <div className="lsc-details">
@@ -337,6 +344,7 @@ function Dashboard() {
               <p>9</p>
             </div>
         </div>
+        </a>
         </div>
 
         </div>
