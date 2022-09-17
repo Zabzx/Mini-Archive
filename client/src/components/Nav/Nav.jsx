@@ -19,7 +19,7 @@ import placeholderPFP from '../../assets/placeholder-pfp.png'
 // Framer Motion
 import { motion, AnimatePresence } from "framer-motion"
 import { UserContext } from '../../context/User'
-import '../Dashboard/dashboard.css'
+import './nav.css'
 
 const Nav = () => {
     // State

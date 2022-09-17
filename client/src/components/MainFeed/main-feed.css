@@ -1,0 +1,153 @@
+/* Main Feed */
+.main-feed {
+    width: 50%;
+}
+
+.post-form {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.post-form img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.img-and-input {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.img-and-input input {
+    flex: 1;
+    border-radius: 20px;
+    height: 45px;
+    padding-left: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: #EDEDED;
+    border: none;
+}
+
+.img-and-input input:focus {
+    outline: none;
+}
+
+.img-and-input::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    height: 2px;
+    background-color: #EDEDED;
+}
+
+.search-emoji {
+    position: absolute;
+    right: 5%;
+}
+
+ul {
+    list-style: none;
+}
+
+.post-options {
+    padding-bottom: 1rem;
+}
+
+.post-options ul {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-option-icon {
+    font-size: 1.2rem;
+}
+
+.post-btn {
+    background-color: var(--primary-pink);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.inactive-btn {
+    background-color: #9B9B9B;
+    color: black;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Post item */
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.post {
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 20px;
+}
+
+.post-header {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.post-name-and-img {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-pfp {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.post-img {
+    border-radius: 10px;
+    margin-top: .6rem;
+    object-fit: contain;
+}
+
+.unliked {
+    color: #9B9B9B;
+    cursor: pointer;
+}
+
+.liked {
+    color: red;
+    cursor: pointer;
+}
+
+.post-interact {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.like-and-comment {
+    display: flex;
+    gap: 1rem;
+}
+
+.post-interact-icon {
+    font-size: 2rem;
+}

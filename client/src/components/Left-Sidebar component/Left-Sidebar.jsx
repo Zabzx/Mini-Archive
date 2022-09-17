@@ -7,6 +7,7 @@ import porgfolioLogo  from '../../assets/portfolioLogo.png'
 import '../Dashboard/dashboard.css'
 import { Link } from "react-router-dom";
 import { FiSettings } from 'react-icons/fi'
+import './left-sidebar.css'
 
 const LeftSidebar = () => {
 

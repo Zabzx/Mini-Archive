@@ -9,7 +9,7 @@ import { TiAt } from 'react-icons/ti'
 import { BsThreeDots } from 'react-icons/bs';
 import { BiRedo } from 'react-icons/bi'
 import { LikedPostContext } from '../../context/LikedPostsContext';
-import '../Dashboard/dashboard.css';
+import './main-feed.css';
 
 const MainFeed = () => {
     // Context

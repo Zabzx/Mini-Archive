@@ -1,0 +1,89 @@
+/* Left sidebar */
+.lsbc {
+    width: 20%;
+    position: sticky;
+    top: 10px;
+    height: 100vh;
+}
+
+.sidebar-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.lsbc p {
+    font-size: .7rem;
+    color: #9B9B9B;
+}
+.left-sidebar {
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 2rem;
+}
+.left-personal {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.left-personal::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    height: 1px;
+    width: 100%;
+    background-color: #EDEDED;
+}
+
+.left-personal img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.left-sidebar-component {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.left-sidebar-component img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.pages {
+    margin-top: 2rem;
+}
+
+.notification {
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.notification p {
+    color: white;
+    background-color: var(--primary-pink);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.left-sidebar h5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.left-sidebar-extra-content {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}

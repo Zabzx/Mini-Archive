@@ -8,7 +8,7 @@ import githubLogo  from '../../assets/githubLogo.png'
 import porgfolioLogo  from '../../assets/portfolioLogo.png'
 import { HiOutlineLightningBolt } from 'react-icons/hi'
 import { ImUserPlus } from 'react-icons/im'
-import '../Dashboard/dashboard.css'
+import './right-sidebar.css'
 
 const RightSidebar = () => {
   return (
