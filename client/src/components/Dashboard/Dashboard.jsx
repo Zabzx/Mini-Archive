@@ -2,18 +2,16 @@ import React, { useState, useContext } from "react";
 import './dashboard.css';
 import TempPFP from '../../assets/temp-pfp.jpg'
 import { Link } from "react-router-dom";
-// React Icons
-import { GoHome } from 'react-icons/go'
-import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
-import { IoIosArrowDown } from 'react-icons/io'
+import LeftSidebar from "../Left-Sidebar component/Left-Sidebar";
 import { FiSettings } from 'react-icons/fi'
 import twitterLogo  from '../../assets/twitterLogo.png'
 import githubLogo  from '../../assets/githubLogo.png'
 import porgfolioLogo  from '../../assets/portfolioLogo.png'
-import { MdTagFaces } from 'react-icons/md';
 import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiOutlineQuestionCircle } from 'react-icons/ai'
-import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
-import { TiAt } from 'react-icons/ti'
+// React Icons
+import { GoHome } from 'react-icons/go'
+import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
+import { IoIosArrowDown } from 'react-icons/io'
 import { BiRedo } from 'react-icons/bi'
 import { HiOutlineLightningBolt } from 'react-icons/hi'
 import { ImUserPlus } from 'react-icons/im'
@@ -32,6 +30,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { PostContext } from "../../context/PostContext";
 import { UserContext } from "../../context/User";
 import { LikedPostContext } from "../../context/LikedPostsContext";
+import MainFeed from "../MainFeed/MainFeed";
 
 function Dashboard() {
   // Context
@@ -40,14 +39,7 @@ function Dashboard() {
   // State
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [notificationDropdown, setNotificationDropdown] = useState(false);
-  const [postInput, setPostInput] = useState({
-    id: Math.floor(Math.random() * 100000),
-    text: "",
-    pfp: user.pfp ? user.pfp : placeholderPFP,
-    name: user.username,
-    time: 'Just now',
-    liked: false,
-  });
+
 
   const openProfile = () => {
     setProfileDropdown(!profileDropdown);
@@ -61,26 +53,6 @@ function Dashboard() {
     setNotificationDropdown(false);
     setProfileDropdown(false);
   }
-
-  const postSomething = () => {
-    if (postInput.text === "") {
-      return
-    }
-
-    setPosts([postInput, ...posts])
-  }
-
-  const likePost = (post) => {
-    setLikedPosts([post, ...likedPosts])
-    console.log(likedPosts);
-  }
-
-  const unlikePost = (item) => {
-    setLikedPosts(likedPosts.filter(post => post.id != item.id))
-    item.liked = !item.liked;
-  }
-
-  const [posts, setPosts] = useContext(PostContext)
   
   return (
     <>
@@ -280,176 +252,9 @@ function Dashboard() {
     {/* // Main content */}
     <div className="main home-container">
       
-      <div className="lsbc">
-      <div className="left-sidebar">
-        <div className="home-container">
-        
-        <Link to="/profile">
-        <div className="left-personal">
-          <div className="left-personal-name">
-          <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
-          <h4>{user.username}</h4>
-          <small>Port of Spain, Trinidad</small>
-          </div>
-          <FiSettings />
-        </div>
-        </Link>
+      <LeftSidebar />
 
-        <div className="pages">
-        <small>YOUR PAGES</small>
-
-        <a href="https://twitter.com/zabzDev" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
-          <img src={twitterLogo} alt="" />
-
-          <div className="lsc-details">
-            <h4>Twitter</h4>
-            <small>Social Media Platform</small>
-          </div>
-
-            <div className="notification">
-              <p>2</p>
-            </div>
-        </div>
-        </a>
-
-        <h5 className="primary-blue">View All</h5>
-
-        <div className="projects">
-        <small>YOUR PROJECTS</small>
-
-        <a href="https://github.com/Zabzx" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
-          <img src={githubLogo} alt="" />
-          <div className="lsc-details">
-            <h4>GitHub</h4>
-            <small>Coding Platform</small>
-            </div>
-
-            <div className="notification">
-              <p>4</p>
-            </div>
-        </div>
-        </a>
-
-        <a href="https://zabzportfolio.netlify.app/" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
-          <img src={porgfolioLogo} alt="" />
-          <div className="lsc-details">
-            <h4>Portfolio</h4>
-            <small>The best portfolio</small>
-            </div>
-
-            <div className="notification">
-              <p>9</p>
-            </div>
-        </div>
-        </a>
-        </div>
-
-        </div>
-        </div>
-      </div>
-      {/*  */}
-      
-      <div className="left-sidebar-extra-content">
-        <p>Privacy Terms</p>
-        <p>Advertising</p>
-        <p>Cookies</p>
-      </div>
-      
-      <p>Ziabeher Phillips &copy; 2022</p>
-      </div>
-
-
-      <div className="main-feed">
-        <section className="post-form">
-          <div className="home-container">
-          <div className="img-and-input">
-            <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
-            <input type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
-
-            <MdTagFaces className="search-emoji" />
-          </div>
-          </div>
-
-          <div className="post-options home-container">
-          <ul>
-
-          <AiOutlinePicture className="post-option-icon" style={{color: 'var(--primary-blue)'}} />
-            <li>
-              Image
-            </li>
-
-            <AiFillCamera style={{color: '#88E26E'}} className="post-option-icon" />
-            <li>
-              Video
-            </li>
-
-            <AiOutlinePaperClip style={{color: '#ECBD59'}} className="post-option-icon" />
-            <li>
-              Attatchment
-            </li>
-
-            <FaHashtag style={{color: '#EC5959'}} className="post-option-icon" />
-            <li>
-              Hashtag
-            </li>
-
-            <TiAt className="post-option-icon" />
-            <li>
-              Mention
-            </li>
-
-            <button className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={postSomething}>
-              Post
-            </button>
-          </ul>
-        </div>
-        </section>
-
-        <section className="posts">
-          {posts.map(post => (
-            <div className="post" key={post.id}>
-            <div className="home-container">
-            <div className="post-header">
-              <div className="post-name-and-img">
-                <img src={post.pfp} className="post-pfp" alt="" />
-                <div>
-                <h3>{post.name}</h3>
-                <small>{post.time}</small>
-                </div>
-              </div>
-
-              <BsThreeDots />
-            </div>
-            <p className="post-text">{post.text}</p>
-
-            <img src={post.img} className="post-img" alt="" />
-
-            <div className="post-interact">
-              <div className="like-and-comment">
-                <AiFillHeart onClick={() => {
-                  if (!post.liked) {
-                    likePost(post)
-                    post.liked = !post.liked;
-                  } else {
-                    unlikePost(post);
-                  }
-                }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
-                <AiOutlineMessage className="post-interact-icon" />
-                <BiRedo className="post-interact-icon"/>
-              </div>
-
-              <div className="post-share">
-                <FaRegPaperPlane className="post-interact-icon" />
-              </div>
-            </div>
-            </div>
-          </div>
-          ))}
-        </section>
-      </div>
+      <MainFeed />
 
 
       <section className="right-sidebar">
