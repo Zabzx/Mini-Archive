@@ -5,7 +5,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
     pointer-events: all;
 }
 
@@ -222,4 +222,61 @@
 
 .notif-dropdown-header h4 {
     color: var(--primary-blue);
+}
+
+/* Responsibe Tablet Design */
+@media only screen and (max-width: 1200px) {
+    .home-nav {
+        position: fixed;
+        border: 1px solid #e8e8e8;
+        border-radius: 20px;
+        bottom: 2rem;
+        right: 10%;
+        left: 10%;
+    }
+
+    .main {
+        margin-top: 0;
+        padding-top: 1rem;
+    }
+
+    .nav-option h4 {
+        display: none;
+    }
+
+    .nav-options {
+        flex: 1;
+    }
+
+        /* Profile dropdown */
+        .dropped-profile {
+            top: -380px;
+            font-size: .7rem;
+            width: 40%;
+        }
+    
+        /* Notifications dropdown */
+        .notifications-dropdown {
+            top: -520px;
+            width: 40%;
+        }
+    
+        .notifications-dropdown p {
+            font-size: .6rem;
+        }
+}
+
+/* Responsive Mobile Design */
+@media only screen and (max-width: 800px) {
+    .logo-and-search {
+        display: none;
+    }
+
+    .notifications-dropdown {
+        position: absolute;
+        width: 60%;
+        top: -500px;
+        z-index: 4;
+        right: 20%;
+    }
 }

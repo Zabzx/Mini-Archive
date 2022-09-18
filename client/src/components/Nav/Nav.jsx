@@ -45,8 +45,9 @@ const Nav = () => {
 
   return (
     // Overlay
+    <>
+    { profileDropdown || notificationDropdown ? <div className="overlay" onClick={closeDropdown}></div> : ''}
     <div className="home-nav">
-        { profileDropdown || notificationDropdown ? <div className="overlay" onClick={closeDropdown}></div> : ''}
       <div className="home-container home-flex">
       <div className="logo-and-search">
 
@@ -234,6 +235,7 @@ const Nav = () => {
 
       </div>
     </div>
+    </>
   )
 }
 

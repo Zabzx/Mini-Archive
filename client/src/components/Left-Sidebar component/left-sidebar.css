@@ -87,3 +87,31 @@
     display: flex;
     gap: 1rem;
 }
+
+/* Responsive Tavlet Desgin */
+@media only screen and (max-width: 1200px) {
+    .lsbc {
+        width: 10%;
+    }
+    .left-sidebar h4, .left-sidebar small, .left-sidebar p {
+        display: none;
+    }
+
+    .pages {
+        width: 100%;
+    }
+
+    .pages img {
+        margin: 0 auto;
+    }
+
+    .left-sidebar-extra-content {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .lsbc {
+        width: 20%;
+    }
+}

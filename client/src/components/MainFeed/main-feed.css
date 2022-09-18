@@ -151,3 +151,35 @@ ul {
 .post-interact-icon {
     font-size: 2rem;
 }
+
+/* Responsive Tavlet Desgin */
+@media only screen and (max-width: 1200px) {
+    .post-options {
+        font-size: .7rem;
+    }
+
+    .post-options li {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .post-options {
+        font-size: .5rem;
+    }
+
+    .nav-search {
+        display: none;
+    }
+}
+
+/* Responsive Mobile Design */
+@media only screen and (max-width: 800px) {
+    .main-feed {
+        width: 80%;
+    }
+
+    .post-options {
+        font-size: .6rem;
+    }
+}
