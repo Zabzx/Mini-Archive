@@ -50,7 +50,6 @@ const Nav = () => {
     <div className="home-nav">
       <div className="home-container home-flex">
       <div className="logo-and-search">
-
         <svg width="50" height="50" viewBox="0 0 630 514" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 454.31C9 451.81 271 175.31 180 34.3104C89 -106.69 303 512.81 365.5 438.81C428 364.81 422.5 -34.1896 456.5 5.8104C490.5 45.8104 544 518.31 629 511.31" stroke="#FF6884" strokeWidth="20"/>
           </svg>
