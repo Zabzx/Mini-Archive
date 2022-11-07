@@ -14,6 +14,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
