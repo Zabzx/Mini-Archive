@@ -11,12 +11,13 @@ import './left-sidebar.css'
 
 const LeftSidebar = () => {
 
-    // Context
-    const [user, setUser] = useContext(UserContext);
+  // Context
+  const [user, setUser] = useContext(UserContext);
 
   return (
     <div className="left-container sticky">
     <div className="left-sidebar">
+    <Link to="/profile">
       <div className="left-sidebar-profile sidebar-container">
         <div className="pfp-and-location">
           <img className="sidebar-img" src={user.pfp ? user.pfp : placeholderPFP} alt="" />
@@ -26,6 +27,7 @@ const LeftSidebar = () => {
 
         <FiSettings className="left-icon" />
       </div>
+      </Link>
 
       <div className="pages sidebar-container">
         <small className="sidebar-small">YOUR PAGES</small>

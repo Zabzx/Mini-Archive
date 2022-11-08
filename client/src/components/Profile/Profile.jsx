@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import './profile.css'
 import TempPFP from '../../assets/temp-pfp.jpg'
+import Nav from '../Nav/Nav'
 import {UserContext} from '../../context/User'
 import { LikedPostContext } from '../../context/LikedPostsContext'
 import { Link } from 'react-router-dom'
@@ -84,7 +85,42 @@ const Profile = () => {
 
   return (
     <>
-    <h2 className="back-to-home">Back to <Link to="/">Home</Link></h2>
+    <Nav />
+
+    <div className="profile-container">
+      <div className="profile-edit">
+      <img className="edit-pfp" src={ loadedUserImage ? loadedUserImage : placeholderPFP} alt="" />
+      <br />
+      <input className='pfp-input' type="file" onChange={(e) => {
+        const file = e.target.files[0];
+        setUserImage(file);
+        setConfirmImg(true)
+        }}/>
+        <br />
+        { confirmImg ? <button className="btn pfp-confirm" onClick={setPfp}>Confirm profile picture</button> : "" }
+        <div className="profile-user-info">
+        <h3>Username: {user.username}</h3>
+        <h3>Email: {user.email}</h3>
+        </div>
+        <button className="btn" onClick={openEditPopup}>Edit</button>
+      </div>
+
+      <div className="plc"></div>
+    </div>
+
+    <div className="edit-popup">
+      <div className="popup-header edit-popup-container">
+        <h2>Edit Info</h2>
+        <ImCross />
+      </div>
+
+      <div className="edit-input-items edit-popup-container">
+        <input type="text" placeholder='Username' onChange={(e) => setNewUserInfo({...newUserInfo, username: e.currentTarget.value})}/>
+        <input type="text" placeholder='Email' onChange={(e) => setNewUserInfo({...newUserInfo, email: e.currentTarget.value})}/>
+        <button className="btn edit-submit" onClick={editUserInfo}>Submit</button>
+      </div>
+    </div>
+    {/* <h2 className="back-to-home">Back to <Link to="/">Home</Link></h2>
     <section className="profile profile-container">
 
         <div className="profile-flex">
@@ -178,7 +214,7 @@ const Profile = () => {
 
         { editAlert ? <h2 className="edit-alert">New user info changed!</h2> : ""}
     </motion.form> : ""}
-    </AnimatePresence>
+    </AnimatePresence> */}
     </>
   )
 }
