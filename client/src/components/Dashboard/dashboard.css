@@ -2,9 +2,12 @@
     background-color: #EDEDED;
 }
 
+.zzz {
+    background-color: red;
+}
+
 /* Main */
 .main {
-    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     gap: 2rem;

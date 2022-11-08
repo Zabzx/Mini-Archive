@@ -14,11 +14,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  position: relative;
-  overflow-x: hidden;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -90,4 +85,11 @@ small {
 
 .pink-span {
   color: var(--primary-pink);
+}
+
+@media only screen and (max-width: 800px) {
+  html, body {
+    position: relative;
+    overflow-x: hidden;
+  }
 }

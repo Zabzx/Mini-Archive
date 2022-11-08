@@ -15,86 +15,63 @@ const LeftSidebar = () => {
     const [user, setUser] = useContext(UserContext);
 
   return (
-    <div className="lsbc">
-      <div className="left-sidebar">
-        <div className="home-container">
-        
-        <Link to="/profile">
-        <div className="left-personal">
-          <div className="left-personal-name">
-          <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
-          <h4>{user.username}</h4>
+    <div className="left-container sticky">
+    <div className="left-sidebar">
+      <div className="left-sidebar-profile sidebar-container">
+        <div className="pfp-and-location">
+          <img className="sidebar-img" src={user.pfp ? user.pfp : placeholderPFP} alt="" />
+          <br />
           <small>Port of Spain, Trinidad</small>
-          </div>
-          <FiSettings />
         </div>
-        </Link>
 
-        <div className="pages">
-        <small>YOUR PAGES</small>
+        <FiSettings className="left-icon" />
+      </div>
 
-        <a href="https://twitter.com/zabzDev" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
+      <div className="pages sidebar-container">
+        <small className="sidebar-small">YOUR PAGES</small>
+
+        <div className="twitter">
           <img src={twitterLogo} alt="" />
-
-          <div className="lsc-details">
-            <h4>Twitter</h4>
+          <div className="twitter-txt">
+            <h3>Twitter</h3>
             <small>Social Media Platform</small>
           </div>
-
-            <div className="notification">
-              <p>2</p>
-            </div>
-        </div>
-        </a>
-
-        <h5 className="primary-blue">View All</h5>
-
-        <div className="projects">
-        <small>YOUR PROJECTS</small>
-
-        <a href="https://github.com/Zabzx" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
-          <img src={githubLogo} alt="" />
-          <div className="lsc-details">
-            <h4>GitHub</h4>
-            <small>Coding Platform</small>
-            </div>
-
-            <div className="notification">
-              <p>4</p>
-            </div>
-        </div>
-        </a>
-
-        <a href="https://zabzportfolio.netlify.app/" target="_blank" style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="left-sidebar-component">
-          <img src={porgfolioLogo} alt="" />
-          <div className="lsc-details">
-            <h4>Portfolio</h4>
-            <small>The best portfolio</small>
-            </div>
-
-            <div className="notification">
-              <p>9</p>
-            </div>
-        </div>
-        </a>
-        </div>
-
-        </div>
         </div>
       </div>
-      {/*  */}
-      
-      <div className="left-sidebar-extra-content">
+
+      <h5 className="view-all sidebar-container">View All</h5>
+
+      <div className="projects sidebar-container">
+        <small>YOUR PROJECTS</small>
+        <div className="projects-flex">
+        <div className="github">
+          <img src={githubLogo} alt="" />
+          <div className="twitter-txt">
+            <h3>GitHub</h3>
+            <small>Coding Platform</small>
+          </div>
+        </div>
+
+        <div className="portfolio">
+          <img src={porgfolioLogo} alt="" />
+          <div className="twitter-txt">
+            <h3>Portfolio</h3>
+            <small>Portfolio Website</small>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+    <div className="left-sidebar-extra-content">
         <p>Privacy Terms</p>
         <p>Advertising</p>
         <p>Cookies</p>
       </div>
-      
-      <p>Ziabeher Phillips &copy; 2022</p>
-      </div>
+      <p className="copyright">Ziabeher Phillips &copy; 2022</p>
+    </div>
   )
 }
 

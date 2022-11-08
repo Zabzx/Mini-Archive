@@ -1,117 +1,169 @@
-/* Left sidebar */
-.lsbc {
-    width: 20%;
-    position: sticky;
-    top: 10px;
-    height: 100vh;
-}
-
 .sidebar-container {
     width: 90%;
     margin: 0 auto;
 }
-
-.lsbc p {
-    font-size: .7rem;
-    color: #9B9B9B;
+.left-container {
+    position: sticky;
+    width: 20%;
+    
+    height: 100vh;
+    top: 10px;
+    align-self: flex-start;
 }
 .left-sidebar {
-    width: 100%;
     background-color: white;
+    width: 100%;
     border-radius: 20px;
-    padding-bottom: 2rem;
 }
-.left-personal {
+.left-sidebar-profile {
     padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
-
-.left-personal::after {
-    content: '';
+.left-sidebar-profile::before {
     position: absolute;
-    bottom: -15px;
-    height: 1px;
+    content: '';
     width: 100%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
     background-color: #EDEDED;
 }
-
-.left-personal img {
+.sidebar-img {
+    border-radius: 50%;
     height: 50px;
     width: 50px;
-    border-radius: 100%;
-}
-
-.left-sidebar-component {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    position: relative;
-}
-
-.left-sidebar-component img {
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
 }
 
 .pages {
+    margin-top: 1rem;
+}
+
+.twitter {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+}
+.twitter::before {
+    position: absolute;
+    content: '2';
+    background-color: var(--primary-pink);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.twitter img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.view-all {
+    color: var(--primary-blue);
     margin-top: 2rem;
 }
 
-.notification {
-    position: absolute;
-    right: 0;
-    top: 10%;
+.projects {
+    margin-top: 2rem;
 }
 
-.notification p {
-    color: white;
-    background-color: var(--primary-pink);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: .8rem;
-}
 
-.left-sidebar h5 {
+.github {
+    display: flex;
+    gap: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    position: relative;
+}
+.github img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.portfolio img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.portfolio {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+.github::before {
+    position: absolute;
+    content: '4';
+    background-color: var(--primary-pink);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.portfolio::before {
+    position: absolute;
+    content: '9';
+    background-color: var(--primary-pink);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
 }
 
 .left-sidebar-extra-content {
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
+    font-size: 5px;
+}
+.left-sidebar-extra-content p {
+    font-size: .8rem;
 }
 
-/* Responsive Tavlet Desgin */
-@media only screen and (max-width: 1200px) {
-    .lsbc {
-        width: 10%;
+/* mobile */
+@media only screen and (max-width: 800px) {
+    .left-sidebar {
+        text-align: center;
     }
-    .left-sidebar h4, .left-sidebar small, .left-sidebar p {
+    .left-sidebar-profile {
+        display: flex;
+        justify-content: center;
+    }
+    .pfp-and-location small {
         display: none;
     }
-
-    .pages {
-        width: 100%;
+    .left-icon {
+        display: none;
     }
-
-    .pages img {
-        margin: 0 auto;
+    .twitter, .github, .portfolio {
+        justify-content: center;
     }
-
+    .twitter-txt {
+        display: none;
+    }
+    .twitter::before, .github::before, .portfolio::before {
+        display: none;
+    }
     .left-sidebar-extra-content {
         flex-direction: column;
     }
-}
-
-@media only screen and (max-width: 800px) {
-    .lsbc {
-        width: 20%;
+    .copyright {
+        font-size: .8rem;
     }
 }
