@@ -65,6 +65,7 @@ const Profile = () => {
 
     const closeEditPopup = () => {
         setShowEditPopup(false);
+        console.log('s')
     }
 
     const editUserInfo = (e) => {
@@ -105,13 +106,59 @@ const Profile = () => {
         <button className="btn" onClick={openEditPopup}>Edit</button>
       </div>
 
-      <div className="plc"></div>
+      <div className="liked-posts">
+        { likedPosts.length === 0 ? <h1>No liked posts yet.. Get busy!</h1> :
+          <div className="liked-posts">
+            <h3>Liked Posts</h3>
+            {likedPosts.map(post => (
+              <div className="post profile-post" key={post.id}>
+              <div className="home-container">
+              <div className="post-header">
+                <div className="post-name-and-img">
+                  <img src={post.pfp} className="post-pfp" alt="" />
+                  <div>
+                  <h3>{post.name}</h3>
+                  <small>{post.time}</small>
+                  </div>
+                </div>
+  
+                <BsThreeDots />
+              </div>
+              <p className="post-text">{post.text}</p>
+  
+              <img src={post.img} className="post-img" alt="" />
+  
+              <div className="post-interact">
+                <div className="like-and-comment">
+                  <AiFillHeart onClick={() => {
+                    if (!post.liked) {
+                      likePost(post)
+                      post.liked = !post.liked;
+                    } else {
+                      unlikePost(post);
+                    }
+                  }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
+                  <AiOutlineMessage className="post-interact-icon" />
+                  <BiRedo className="post-interact-icon"/>
+                </div>
+  
+                <div className="post-share">
+                  <FaRegPaperPlane className="post-interact-icon" />
+                </div>
+              </div>
+              </div>
+            </div>
+            ))}
+          </div> }
+      </div>
     </div>
-
-    <div className="edit-popup">
+    
+    {/* Edit Popup */}
+    <AnimatePresence>
+    { showEditPopup ? <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="edit-popup">
       <div className="popup-header edit-popup-container">
         <h2>Edit Info</h2>
-        <ImCross />
+        <ImCross className="exit-btn" onClick={closeEditPopup} />
       </div>
 
       <div className="edit-input-items edit-popup-container">
@@ -119,7 +166,11 @@ const Profile = () => {
         <input type="text" placeholder='Email' onChange={(e) => setNewUserInfo({...newUserInfo, email: e.currentTarget.value})}/>
         <button className="btn edit-submit" onClick={editUserInfo}>Submit</button>
       </div>
-    </div>
+    </motion.div> : "" }
+    </AnimatePresence>
+
+    { pfpAlert ? <h2 className="pfp-alert">New profile picture has been set!</h2> : ""}
+    { editAlert ? <h2 className="edit-alert">New user info changed!</h2> : ""}
     {/* <h2 className="back-to-home">Back to <Link to="/">Home</Link></h2>
     <section className="profile profile-container">
 

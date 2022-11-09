@@ -2,6 +2,7 @@
     width: 80%;
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
 }
 .profile-edit {
     width: 50%;
@@ -20,10 +21,12 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.plc {
-    width: 400px;
-    height: 400px;
-    background-color: red;
+.liked-posts {
+    width: 60%;
+}
+.profile-post {
+    border: 1px solid #eee;
+    width: 100%;
 }
 
 /* edit popup */
@@ -48,6 +51,9 @@
     align-items: center;
     height: 70px;
 }
+.exit-btn {
+    cursor: pointer;
+}
 .edit-input-items {
     display: flex;
     flex-direction: column;
@@ -64,6 +70,19 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+.pfp-alert, .edit-alert {
+    color: rgb(0, 97, 10);
+    background-color: rgb(115, 252, 142);
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 30%;
+    position: absolute;
+    left: 10%;
+    top: 80%;
+}
+
 /* .profile {
     margin-top: 1rem;
     display: flex;
@@ -221,3 +240,27 @@
 .post-interact-icon {
     font-size: 2rem;
 } */
+
+@media only screen and (max-width: 800px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    .pfp-confirm {
+        padding: .5rem 1rem;
+        font-size: .7rem;
+    }
+    .liked-posts {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .edit-popup {
+        width: 90%;
+    }
+    .edit-alert, .pfp-alert {
+        top: 10%;
+        left: 5%;
+        width: 90%;
+    }
+}
