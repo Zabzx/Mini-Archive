@@ -95,7 +95,7 @@ const LogIn = () => {
       </div>
   
       <div className="info">
-        <p className="info-p">Log in with <span className="pink-span">Mini Media</span> to start enhancing your social presence</p>
+        <p className="info-p">Log in with <span className="pink-span">Mini Media</span> to start enhancing your social presence.</p>
         <p className="info-p">Connect with loved ones, keep track of all the latest trends and <span className="blue-span">Events near you!</span></p>
     </div>
   
