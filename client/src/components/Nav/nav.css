@@ -79,11 +79,13 @@
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .notif-notification p {
-    font-size: .8rem;
+    font-size: 11px;
 }
 
 .notif-active {

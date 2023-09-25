@@ -52,13 +52,16 @@
     content: '2';
     background-color: var(--primary-pink);
     color: white;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
 }
 .twitter img {
     width: 50px;
@@ -104,26 +107,32 @@
     content: '4';
     background-color: var(--primary-pink);
     color: white;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
 }
 .portfolio::before {
     position: absolute;
     content: '9';
     background-color: var(--primary-pink);
     color: white;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
 }
 
 .left-sidebar-extra-content {

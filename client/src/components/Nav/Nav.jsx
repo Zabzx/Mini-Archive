@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import TempPFP from '../../assets/temp-pfp.jpg'
 import { Link } from 'react-router-dom'
+import NotificationDropdown from '../Dropdowns/NotificationDropdown'
 // React Icons
 import { GoHome } from 'react-icons/go'
 import { BsSearch, BsFillPeopleFill, BsChatDots, BsBell, BsTools, BsThreeDots } from 'react-icons/bs'
@@ -20,11 +21,16 @@ import placeholderPFP from '../../assets/placeholder-pfp.png'
 import { motion, AnimatePresence } from "framer-motion"
 import { UserContext } from '../../context/User'
 import './nav.css'
+import ProfileDropdown from '../Dropdowns/ProfileDropdown'
 
 const Nav = () => {
     // State
     const [profileDropdown, setProfileDropdown] = useState(false);
     const [notificationDropdown, setNotificationDropdown] = useState(false);
+
+      useEffect(() => {
+    console.log(NotificationDropdown)
+  }, [notificationDropdown])
 
     // Context
     const [user, setUser] = useContext(UserContext);
@@ -64,10 +70,12 @@ const Nav = () => {
       </div>
 
       <div className="nav-options">
+        <Link style={{ color: "black", textDecoration: "none" }} to="/">
         <div className="nav-option">
           <GoHome className="nav-icon" />
           <h4>Homepage</h4>
         </div>
+        </Link>
 
         <div className="nav-option">
           <BsFillPeopleFill className="nav-icon" />
@@ -89,99 +97,7 @@ const Nav = () => {
           </div>
 
           <AnimatePresence>
-          { notificationDropdown ? <motion.div initial={{ x: '100px' }} animate={{ x: '0px' }} exit={{ y: '100px', opacity: 0 }} className="notifications-dropdown">
-            <div className="home-container">
-            <div className="notif-dropdown-header">
-              <h3>Notifications</h3>
-              <h4>Read all</h4>
-            </div>
-
-            <small>New</small>
-
-            <div className="notification-items">
-              <div className="notification-item">
-                <img src={pfp4} alt="" />
-
-                <div>
-                  <p>
-                  Caspian Duffy added 4 new photos.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-
-                <BsThreeDots />
-              </div>
-              
-              <div className="notification-item">
-                <img src={TempPFP} alt="" />
-
-                <div>
-                  <p>
-                  Avni Farrell, uploaded 3 new posts.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-
-                <BsThreeDots />
-              </div>
-
-              <div className="notification-item">
-                <img src={pfp4} alt="" />
-
-                <div>
-                  <p>
-                  Caspian Duffy, accepted your friend request.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-              
-              <BsThreeDots />
-              </div>
-
-              <div className="notification-item">
-                <img src={TempPFP} alt="" />
-
-                <div>
-                  <p>
-                  Avni Farrell, added 14 new photos.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-              
-              <BsThreeDots />
-              </div>
-            </div>
-
-            <small>Previous</small>
-
-            <div className="notification-item">
-                <img src={TempPFP} alt="" />
-
-                <div>
-                  <p>
-                  Avni Farrell, changed their profile picture.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-              
-              <BsThreeDots />
-              </div>
-
-              <div className="notification-item">
-                <img src={TempPFP} alt="" />
-
-                <div>
-                  <p>
-                  Avni Farrell, accepted your friend request.
-                  </p>
-                  <small>14 min.</small>
-                </div>
-              
-              <BsThreeDots />
-              </div>
-              
-          </div>
-          </motion.div> : ''}
+          { notificationDropdown ? <NotificationDropdown /> : ''}
           </AnimatePresence>
 
         <div className="nav-option">
@@ -198,40 +114,7 @@ const Nav = () => {
         </div>
 
         <AnimatePresence>
-        { profileDropdown ? <motion.div initial={{ x: '-100px' }} animate={{ x: '0px' }} exit={{ y: '100px', opacity: 0}} className="dropped-profile">
-          <div className="home-container">
-          <h2>Profile</h2>
-
-          <div className="dropdown-components">
-            <Link to="/profile">
-            <div className="dropdown-component">
-              <CgProfile className="dropdown-icon" />
-              <h4>My Profile</h4>
-            </div>
-            </Link>
-
-            <div className="dropdown-component">
-              <TbRefreshAlert className="dropdown-icon" />
-              <h4>Change Account</h4>
-            </div>
-
-            <div className="dropdown-component">
-              <FiSettings className="dropdown-icon" />
-              <h4>Settings</h4>
-            </div>
-
-            <div className="dropdown-component">
-              <AiOutlineQuestionCircle className="dropdown-icon" />
-              <h4>Help</h4>
-            </div>
-
-            <div className="dropdown-component">
-              <VscFeedback className="dropdown-icon" />
-              <h4>Give Feedback</h4>
-            </div>
-          </div>
-          </div>
-        </motion.div> : ''}
+        { profileDropdown ? <ProfileDropdown /> : ''}
         </AnimatePresence>
       </div>
 
