@@ -1,7 +1,7 @@
 import React from "react";
 import './dashboard.css';
 // Context
-import LeftSidebar from "../Left-Sidebar component/Left-Sidebar";
+import LeftSidebar from "../Left-Sidebar-component/Left-Sidebar";
 import MainFeed from "../MainFeed/MainFeed";
 import RightSidebar from "../RightSidebar/RightSidebar";
 import Nav from "../Nav/Nav";

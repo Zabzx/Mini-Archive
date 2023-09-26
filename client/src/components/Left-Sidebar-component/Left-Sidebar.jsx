@@ -46,6 +46,7 @@ const LeftSidebar = () => {
       <div className="projects sidebar-container">
         <small>YOUR PROJECTS</small>
         <div className="projects-flex">
+        <a target="_blank" href="https://github.com/Zabzx">
         <div className="github">
           <img src={githubLogo} alt="" />
           <div className="twitter-txt">
@@ -53,7 +54,9 @@ const LeftSidebar = () => {
             <small>Coding Platform</small>
           </div>
         </div>
+        </a>
 
+        <a target="_blank" href="https://zabzportfolio.netlify.app/">
         <div className="portfolio">
           <img src={porgfolioLogo} alt="" />
           <div className="twitter-txt">
@@ -61,6 +64,7 @@ const LeftSidebar = () => {
             <small>Portfolio Website</small>
           </div>
         </div>
+        </a>
         
         </div>
       </div>

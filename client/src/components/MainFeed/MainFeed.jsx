@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../context/User'
 import { PostContext } from '../../context/PostContext';
 import placeholderPFP from '../../assets/placeholder-pfp.png'
 import { MdTagFaces } from 'react-icons/md';
-import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiOutlineQuestionCircle } from 'react-icons/ai'
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiFillEdit } from 'react-icons/ai'
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BsThreeDots } from 'react-icons/bs';
@@ -16,25 +16,47 @@ const MainFeed = () => {
     const [user, setUser] = useContext(UserContext);
     const [posts, setPosts] = useContext(PostContext);
     const [likedPosts, setLikedPosts] = useContext(LikedPostContext);
+    const [inputMode, setInputMode] = useState("post");
+    const [desiredId, setDesiredId] = useState();
+
+    const getRandomNumber = () => {
+      const random = Math.random() * 100000000000000;
+      return random;
+    }
 
     // State
     const [postInput, setPostInput] = useState({
-        id: Math.floor(Math.random() * 100000),
+        id: undefined,
         text: "",
         pfp: user.pfp ? user.pfp : placeholderPFP,
         name: user.username,
         time: 'Just now',
         liked: false,
+        fromUser: true,
       });
 
     // Functions
     const postSomething = () => {
+      if (inputMode === "post") {
         if (postInput.text === "") {
-          return
+          return;
         }
     
-        setPosts([postInput, ...posts])
+        postInput.id = getRandomNumber();
+        setPosts([postInput, ...posts]);
+        setPostInput({ ...postInput, text: "" });
+      } else if (inputMode === "edit") {
+        const updatedPosts = posts.map((post) => {
+          console.log(post)
+          if (post.id === desiredId) {
+            return { ...post, text: postInput.text };
+          }
+          return post; // Return unchanged posts
+        });
+        setPosts(updatedPosts);
       }
+    };
+      
     
       const likePost = (post) => {
         setLikedPosts([post, ...likedPosts])
@@ -44,6 +66,14 @@ const MainFeed = () => {
         setLikedPosts(likedPosts.filter(post => post.id != item.id))
         item.liked = !item.liked;
       }
+
+      const editPost = (post) => {
+        setInputMode("edit");
+        setPostInput({
+          text: post.text
+        });
+        setDesiredId(post.id);
+      }
     
   return (
     <div className="main-feed">
@@ -51,7 +81,7 @@ const MainFeed = () => {
           <div className="home-container">
           <div className="img-and-input">
             <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
-            <input type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
+            <input value={postInput.text} type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
 
             <MdTagFaces className="search-emoji" />
           </div>
@@ -85,7 +115,7 @@ const MainFeed = () => {
               Mention
             </li>
 
-            <button className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={postSomething}>
+            <button className={ postInput.text !== "" ? "post-btn" : "inactive-btn"} onClick={() => postSomething()}>
               Post
             </button>
           </ul>
@@ -109,7 +139,7 @@ const MainFeed = () => {
             </div>
             <p className="post-text">{post.text}</p>
 
-            <img src={post.img} className="post-img" alt="" />
+            { post.img !== undefined ? <img src={post.img} className="post-img" alt="" /> : ""}
 
             <div className="post-interact">
               <div className="like-and-comment">
@@ -122,7 +152,7 @@ const MainFeed = () => {
                   }
                 }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
                 <AiOutlineMessage className="post-interact-icon" />
-                <BiRedo className="post-interact-icon"/>
+                { post.fromUser ? <AiFillEdit onClick={() => editPost(post)} /> : <BiRedo className="post-interact-icon"/> }
               </div>
 
               <div className="post-share">

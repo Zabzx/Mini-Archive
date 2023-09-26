@@ -28,10 +28,6 @@ const Nav = () => {
     const [profileDropdown, setProfileDropdown] = useState(false);
     const [notificationDropdown, setNotificationDropdown] = useState(false);
 
-      useEffect(() => {
-    console.log(NotificationDropdown)
-  }, [notificationDropdown])
-
     // Context
     const [user, setUser] = useContext(UserContext);
 
@@ -89,7 +85,7 @@ const Nav = () => {
 
         <div className={ notificationDropdown ? "nav-option notif-active" : "nav-option notif"} onClick={openNotifications}>
           <BsBell className={ notificationDropdown ? "icon-active" : "nav-icon"}/>
-          <h4>Notifications</h4>
+          <h4 className="notif-heading">Notifications</h4>
 
           <div className="notif-notification">
               <p>9</p>

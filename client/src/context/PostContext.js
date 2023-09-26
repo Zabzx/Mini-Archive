@@ -2,9 +2,11 @@ import { createContext, CreateContext, useState } from 'react';
 // Post Images
 import Girl1 from '../assets/post-girl-1.jpg'
 import Girl2 from '../assets/post-girl-2.jpg'
+import Girl3 from '../assets/girl3.jpg'
 import pfp1 from '../assets/pfp-1.jpg'
 import pfp2 from '../assets/pfp-2.jpg'
 import pfp3 from '../assets/pfp-3.jpg'
+import pfp4 from '../assets/pfp-5.jpg'
 import PostBurgers from '../assets/post-burgers.jpg';
 
 export const PostContext = createContext();
@@ -31,6 +33,87 @@ export const PostContextProvider = (props) => {
         },
         {
           id: 3,
+          pfp: pfp4,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 4,
+          pfp: pfp3,
+          name: "Lorri Jo",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl3,
+          liked: false
+        },
+        {
+          id: 5,
+          pfp: pfp3,
+          name: "Jónatan Lukas",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 6,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 7,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 8,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 9,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 10,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 11,
+          pfp: pfp3,
+          name: "Cherie Powers",
+          time: "1 hour ago",
+          text: "gonna start studying for finals today. 📚",
+          img: Girl2,
+          liked: false
+        },
+        {
+          id: 12,
           pfp: pfp3,
           name: "Cherie Powers",
           time: "1 hour ago",

@@ -84,6 +84,15 @@
     align-items: center;
 }
 
+.notif-notification h4 {
+    text-decoration: underline;
+    color: red;
+}
+
+.notif-heading {
+    text-decoration: underline;
+}
+
 .notif-notification p {
     font-size: 11px;
 }

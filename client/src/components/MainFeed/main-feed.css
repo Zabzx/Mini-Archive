@@ -81,7 +81,7 @@ ul {
 
 .inactive-btn {
     background-color: #9B9B9B;
-    color: black;
+    color: white;
     padding: .5rem 1rem;
     border-radius: 20px;
     cursor: pointer;
@@ -92,7 +92,8 @@ ul {
 .posts {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 .post {
     background-color: white;
@@ -191,6 +192,10 @@ ul {
 
     .main-feed {
         flex: 1
+    }
+
+    .posts {
+        margin-bottom: 8rem;
     }
 
     .post {
