@@ -184,6 +184,8 @@ ul {
 
     .img-and-input input {
         width: 90%;
+        font-size: 13px;
+        padding-left: 10px;
     }
 
     .search-emoji {
@@ -204,5 +206,9 @@ ul {
 
     .post-options {
         font-size: .6rem;
+    }
+
+    .post-btn, .inactive-btn {
+        padding: .3rem .5rem;
     }
 }

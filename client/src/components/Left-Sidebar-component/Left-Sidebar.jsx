@@ -41,17 +41,17 @@ const LeftSidebar = () => {
         </div>
       </div>
 
-      <h5 className="view-all sidebar-container">View All</h5>
+      <h5 className="view-all sidebar-small sidebar-container">View All</h5>
 
       <div className="projects sidebar-container">
-        <small>YOUR PROJECTS</small>
+        <small className="sidebar-small">YOUR PROJECTS</small>
         <div className="projects-flex">
         <a target="_blank" href="https://github.com/Zabzx">
         <div className="github">
           <img src={githubLogo} alt="" />
           <div className="twitter-txt">
             <h3>GitHub</h3>
-            <small>Coding Platform</small>
+            <small className="sidebar-small">Coding Platform</small>
           </div>
         </div>
         </a>
@@ -61,7 +61,7 @@ const LeftSidebar = () => {
           <img src={porgfolioLogo} alt="" />
           <div className="twitter-txt">
             <h3>Portfolio</h3>
-            <small>Portfolio Website</small>
+            <small className="sidebar-small">Portfolio Website</small>
           </div>
         </div>
         </a>

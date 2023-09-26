@@ -65,7 +65,6 @@ const Profile = () => {
 
     const closeEditPopup = () => {
         setShowEditPopup(false);
-        console.log('s')
     }
 
     const editUserInfo = (e) => {
@@ -98,16 +97,16 @@ const Profile = () => {
         setConfirmImg(true)
         }}/>
         <br />
-        { confirmImg ? <button className="btn pfp-confirm" onClick={setPfp}>Confirm profile picture</button> : "" }
+        { confirmImg ? <button className="pfp-confirm" onClick={setPfp}>Confirm profile picture</button> : "" }
         <div className="profile-user-info">
         <h3>Username: {user.username}</h3>
         <h3>Email: {user.email}</h3>
         </div>
-        <button className="btn" onClick={openEditPopup}>Edit</button>
+        <button className="profile-btn" onClick={openEditPopup}>Edit</button>
       </div>
 
       <div className="liked-posts">
-        { likedPosts.length === 0 ? <h1>No liked posts yet.. Get busy!</h1> :
+        { likedPosts.length === 0 ? <h1 style={{ fontSize: "1rem" }}>No liked posts yet.. Get busy!</h1> :
           <div className="liked-posts">
             <h3>Liked Posts</h3>
             {likedPosts.map(post => (

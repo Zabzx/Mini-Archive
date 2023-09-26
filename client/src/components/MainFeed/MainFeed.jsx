@@ -3,7 +3,7 @@ import { UserContext } from '../../context/User'
 import { PostContext } from '../../context/PostContext';
 import placeholderPFP from '../../assets/placeholder-pfp.png'
 import { MdTagFaces } from 'react-icons/md';
-import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiFillEdit } from 'react-icons/ai'
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiFillEdit, AiFillDelete } from 'react-icons/ai'
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BsThreeDots } from 'react-icons/bs';
@@ -43,6 +43,7 @@ const MainFeed = () => {
         }
     
         postInput.id = getRandomNumber();
+        postInput.time = getTime();
         setPosts([postInput, ...posts]);
         setPostInput({ ...postInput, text: "" });
       } else if (inputMode === "edit") {
@@ -74,6 +75,27 @@ const MainFeed = () => {
         });
         setDesiredId(post.id);
       }
+
+      const deletePost = (id) => {
+        const filteredPosts = posts.filter(p => p.id !== id);
+        setPosts(filteredPosts);
+      }
+
+      const getTime = () => {
+        const currentTimeInMillis = Date.now();
+        const currentDate = new Date(currentTimeInMillis);
+
+        // Get hours, minutes, and AM/PM
+        const hours = currentDate.getHours() % 12 || 12; // Convert 0 to 12
+        const minutes = currentDate.getMinutes();
+        const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+
+        // Create the formatted time string
+        const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+
+        console.log(formattedTime)
+        return formattedTime
+      }
     
   return (
     <div className="main-feed">
@@ -83,7 +105,7 @@ const MainFeed = () => {
             <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
             <input value={postInput.text} type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
 
-            <MdTagFaces className="search-emoji" />
+            <MdTagFaces onClick={() => getTime()} className="search-emoji" />
           </div>
           </div>
 
@@ -153,6 +175,7 @@ const MainFeed = () => {
                 }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
                 <AiOutlineMessage className="post-interact-icon" />
                 { post.fromUser ? <AiFillEdit onClick={() => editPost(post)} /> : <BiRedo className="post-interact-icon"/> }
+                { post.fromUser ? <AiFillDelete onClick={() => deletePost(post.id)} /> : ""}
               </div>
 
               <div className="post-share">
