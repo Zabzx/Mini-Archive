@@ -125,7 +125,7 @@ const Profile = () => {
               </div>
               <p className="post-text">{post.text}</p>
   
-              <img src={post.img} className="post-img" alt="" />
+              { !post.fromUser ? <img src={post.img} className="post-img" alt="" /> : "" }
   
               <div className="post-interact">
                 <div className="like-and-comment">

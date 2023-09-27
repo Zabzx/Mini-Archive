@@ -1,13 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import { UserContext } from '../../context/User'
 import { PostContext } from '../../context/PostContext';
 import placeholderPFP from '../../assets/placeholder-pfp.png'
 import { MdTagFaces } from 'react-icons/md';
-import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage, AiFillEdit, AiFillDelete } from 'react-icons/ai'
+import { AiOutlinePicture, AiFillCamera, AiOutlinePaperClip, AiFillHeart, AiOutlineMessage } from 'react-icons/ai'
 import { FaHashtag, FaRegPaperPlane } from 'react-icons/fa'
 import { TiAt } from 'react-icons/ti'
 import { BsThreeDots } from 'react-icons/bs';
 import { BiRedo } from 'react-icons/bi'
+import { FiEdit3 } from "react-icons/fi"
+import { IoTrashBinOutline } from "react-icons/io5"
 import { LikedPostContext } from '../../context/LikedPostsContext';
 import './main-feed.css';
 
@@ -18,6 +20,8 @@ const MainFeed = () => {
     const [likedPosts, setLikedPosts] = useContext(LikedPostContext);
     const [inputMode, setInputMode] = useState("post");
     const [desiredId, setDesiredId] = useState();
+
+    const inputRef = useRef();
 
     const getRandomNumber = () => {
       const random = Math.random() * 100000000000000;
@@ -44,19 +48,25 @@ const MainFeed = () => {
     
         postInput.id = getRandomNumber();
         postInput.time = getTime();
+        postInput.pfp = user.pfp;
         setPosts([postInput, ...posts]);
         setPostInput({ ...postInput, text: "" });
       } else if (inputMode === "edit") {
         const updatedPosts = posts.map((post) => {
-          console.log(post)
           if (post.id === desiredId) {
             return { ...post, text: postInput.text };
           }
+          setInputMode("post");
           return post; // Return unchanged posts
         });
+        inputRef.current.value = ""
         setPosts(updatedPosts);
       }
     };
+
+    useEffect(() => {
+      inputRef.current.value = "";
+    }, [posts]);
       
     
       const likePost = (post) => {
@@ -74,6 +84,7 @@ const MainFeed = () => {
           text: post.text
         });
         setDesiredId(post.id);
+        inputRef.current.focus();
       }
 
       const deletePost = (id) => {
@@ -93,8 +104,11 @@ const MainFeed = () => {
         // Create the formatted time string
         const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
 
-        console.log(formattedTime)
         return formattedTime
+      }
+
+      const clearRef = () => {
+        inputRef.current.value = "";
       }
     
   return (
@@ -103,9 +117,9 @@ const MainFeed = () => {
           <div className="home-container">
           <div className="img-and-input">
             <img src={user.pfp ? user.pfp : placeholderPFP} alt="" />
-            <input value={postInput.text} type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
+            <input ref={inputRef} value={postInput.text} type="text" placeholder="Say something..." onChange={(e) => setPostInput({...postInput, text: e.currentTarget.value})} />
 
-            <MdTagFaces onClick={() => getTime()} className="search-emoji" />
+            <MdTagFaces onClick={() => clearRef()} className="search-emoji" />
           </div>
           </div>
 
@@ -174,8 +188,8 @@ const MainFeed = () => {
                   }
                 }} className={ post.liked ? "post-interact-icon liked" : "post-interact-icon unliked"} />
                 <AiOutlineMessage className="post-interact-icon" />
-                { post.fromUser ? <AiFillEdit onClick={() => editPost(post)} /> : <BiRedo className="post-interact-icon"/> }
-                { post.fromUser ? <AiFillDelete onClick={() => deletePost(post.id)} /> : ""}
+                { post.fromUser ? <FiEdit3 className="post-interact-icon" onClick={() => editPost(post)} /> : <BiRedo className="post-interact-icon"/> }
+                { post.fromUser ? <IoTrashBinOutline className="post-interact-icon" onClick={() => deletePost(post.id)} /> : ""}
               </div>
 
               <div className="post-share">

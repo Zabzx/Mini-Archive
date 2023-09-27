@@ -61,7 +61,7 @@ export const PostContextProvider = (props) => {
           liked: false
         },
         {
-          id: 5,
+          id: 6,
           pfp: pfp6,
           name: "Samantha James",
           time: "2 hours ago",

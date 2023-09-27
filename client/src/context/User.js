@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import placeholderPFP from "../assets/placeholder-pfp.png"
 
 export const UserContext = createContext();
 
@@ -7,7 +8,7 @@ export const UserContextProvider = (props) => {
         username: null,
         email: null,
         password: null,
-        pfp: null,
+        pfp: placeholderPFP,
     })
 
     return (
