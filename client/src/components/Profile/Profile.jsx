@@ -89,7 +89,7 @@ const Profile = () => {
 
     <div className="profile-container">
       <div className="profile-edit">
-      <img className="edit-pfp" src={ loadedUserImage ? loadedUserImage : placeholderPFP} alt="" />
+      { !user.pfp ? <img className="edit-pfp" src={ loadedUserImage ? loadedUserImage : placeholderPFP} alt="" /> : <img className="edit-pfp" src={user.pfp} alt="" />}
       <br />
       <input className='pfp-input' type="file" onChange={(e) => {
         const file = e.target.files[0];

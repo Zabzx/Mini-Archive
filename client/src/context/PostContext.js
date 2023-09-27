@@ -6,8 +6,11 @@ import Girl3 from '../assets/girl3.jpg'
 import pfp1 from '../assets/pfp-1.jpg'
 import pfp2 from '../assets/pfp-2.jpg'
 import pfp3 from '../assets/pfp-3.jpg'
-import pfp4 from '../assets/pfp-5.jpg'
+import pfp5 from '../assets/pfp-5.jpg'
+import pfp6 from "../assets/pfp6.jpg";
 import PostBurgers from '../assets/post-burgers.jpg';
+import PostApples from "../assets/post-apples.jpg";
+import Cat from "../assets/cat.jpg";
 
 export const PostContext = createContext();
 
@@ -33,7 +36,7 @@ export const PostContextProvider = (props) => {
         },
         {
           id: 3,
-          pfp: pfp4,
+          pfp: pfp5,
           name: "Cherie Powers",
           time: "1 hour ago",
           text: "gonna start studying for finals today. 📚",
@@ -42,85 +45,30 @@ export const PostContextProvider = (props) => {
         },
         {
           id: 4,
-          pfp: pfp3,
+          pfp: Girl3,
           name: "Lorri Jo",
           time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl3,
+          img: pfp5,
           liked: false
         },
         {
           id: 5,
           pfp: pfp3,
           name: "Jónatan Lukas",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
+          time: "47 minutes ago",
+          text: "An apple a day.",
+          img: PostApples,
           liked: false
         },
         {
-          id: 6,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
+          id: 5,
+          pfp: pfp6,
+          name: "Samantha James",
+          time: "2 hours ago",
+          text: "🥺",
+          img: Cat,
           liked: false
         },
-        {
-          id: 7,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        },
-        {
-          id: 8,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        },
-        {
-          id: 9,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        },
-        {
-          id: 10,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        },
-        {
-          id: 11,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        },
-        {
-          id: 12,
-          pfp: pfp3,
-          name: "Cherie Powers",
-          time: "1 hour ago",
-          text: "gonna start studying for finals today. 📚",
-          img: Girl2,
-          liked: false
-        }
       ]);
 
       return (
