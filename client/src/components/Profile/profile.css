@@ -22,6 +22,7 @@
 .edit-pfp {
     height: 200px;
     width: 200px;
+    border-radius: 10px;
 }
 .pfp-input {
     margin-top: 1rem;
@@ -262,6 +263,12 @@
 .post-interact-icon {
     font-size: 2rem;
 } */
+
+@media only screen and (max-width: 1200px) {
+    .profile-container {
+        margin-top: 2rem;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     .profile-container {

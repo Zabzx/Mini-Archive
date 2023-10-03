@@ -49,11 +49,22 @@ const MainFeed = () => {
         postInput.id = getRandomNumber();
         postInput.time = getTime();
         postInput.pfp = user.pfp;
+        postInput.fromUser = true;
         setPosts([postInput, ...posts]);
         setPostInput({ ...postInput, text: "" });
       } else if (inputMode === "edit") {
         const updatedPosts = posts.map((post) => {
           if (post.id === desiredId) {
+            // Add updated post to liked posts if the orinal post was liked
+            if (post.liked) {
+              setLikedPosts((prev) => {
+                for (let i = 0; i < prev.length; i++) {
+                  let u = prev[i]
+                  u.text = postInput.text;
+                  return [...prev];
+                }
+              })
+            }
             return { ...post, text: postInput.text };
           }
           setInputMode("post");
